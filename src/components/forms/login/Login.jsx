@@ -9,7 +9,7 @@ import axios from "axios";
 import { RxEnvelopeClosed } from "react-icons/rx";
 import { CiLock } from "react-icons/ci";
 import { BaseUrl } from "../../constants/url/BaseUrl";
-import AuthContext from '../../context/AuthContext';
+import AuthContext from '../../../context/AuthContext';
 import { token } from '../../constants/url/BaseUrl';
 
 
