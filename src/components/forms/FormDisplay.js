@@ -1,12 +1,10 @@
 import React from 'react'
-import Login from './login/Login'
-import Reg from './registration/Reg'
+import FormFunction from './FormFunction'
 
 function FormDisplay() {
   return (
     <div>
-        <Login />
-        <Reg />
+        <FormFunction />
     </div>
   )
 }
