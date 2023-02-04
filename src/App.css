@@ -1,0 +1,16 @@
+:root {
+  --Home-background-image: #F9FBFC;
+  --gap: 15px;
+  --width: 240px;
+  --height: var(--width);
+}
+
+
+
+
+
+
+.Post-container{
+    height: 100vh;
+    background-color: var(--Home-background-image);
+}
