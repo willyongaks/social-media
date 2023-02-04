@@ -34,7 +34,6 @@ const options = {
 function Login(props) {
     const [auth, setAuth] = useContext(AuthContext);
 
-
     const [submitting, setSubmitting] = useState(false);
     const [loginError, setLoginError] = useState(null);
   
@@ -42,6 +41,8 @@ function Login(props) {
     const {register,handleSubmit,formState: { errors },} = useForm({
         resolver: yupResolver( schema ),
     });
+
+    
 
 
     async function onSubmit(data) {
@@ -99,10 +100,6 @@ function Login(props) {
                     
                 </InputGroup>
                 {errors.password && <p>Password is required </p>}
-
-                <Form.Group className="mb-3" controlid="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
 
                 <div className='form-btns col-12'>
                     <Button 
