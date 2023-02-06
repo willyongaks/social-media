@@ -5,7 +5,7 @@ import ReactToPost from './ReactToPost';
 import CommentToPost from './CommentToPost';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import '../../../App.css';
+import '../../../styles/postStyles/styles.scss';
 
 
 
@@ -74,7 +74,7 @@ function Posts() {
                             <Card.Body>
                                 <Card.Text>{post.body}</Card.Text>
                                 <Button className='Like-button'><ReactToPost id={post.id}  reactions={post._count.reactions}/></Button>
-                                <Button ><CommentToPost id={post.id} comments={post._count.comments}/></Button>
+                                <Button className='comment-button' ><CommentToPost id={post.id} comments={post._count.comments}/></Button>
                                 
                             </Card.Body>
                         </Card>

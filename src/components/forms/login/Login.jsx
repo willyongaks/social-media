@@ -11,6 +11,7 @@ import { CiLock } from "react-icons/ci";
 import { BaseUrl } from "../../../constants/url/BaseUrl";
 import AuthContext from '../../../context/AuthContext';
 import { token } from '../../../constants/url/BaseUrl';
+import '../../../styles/loginStyles/styles.scss';
 
 
 

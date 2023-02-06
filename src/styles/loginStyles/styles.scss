@@ -1,0 +1,8 @@
+.login-btn, .register-btn{
+    background-color: black;
+
+    &:hover{
+        background-color: transparent;
+        color: black;
+    }
+}
