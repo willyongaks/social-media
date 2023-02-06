@@ -1,6 +1,8 @@
 import React, { useState} from 'react';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { token } from '../../../constants/url/BaseUrl';
+import { CiHeart } from "react-icons/ci";
+import '../../../App.css';
 
 
 
@@ -53,8 +55,8 @@ function ReactToPost({id, symbol, reactions}) {
   return (
     <>  
         {postId && <p className="post-id">Post ID: {postId}</p>}
-        <button onClick={onSubmit} type="button" className="btn btn-primary m-2">
-            {isReact ? symbol : symbol} <span className="badge bg-secondary">{count}</span>
+        <button onClick={onSubmit} type="button" className=" Like-button">
+            {isReact ? symbol : symbol} <CiHeart/>
         </button>
     </>
   )

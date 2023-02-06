@@ -5,6 +5,8 @@ import ReactToPost from './ReactToPost';
 import CommentToPost from './CommentToPost';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import '../../../App.css';
+
 
 const url = Base_Post_Url + "posts";
 
@@ -53,25 +55,27 @@ function Posts() {
   return (
 
     <> 
-            
-      <div>
-           
-            <div className='pst-title c-white'>
+           <div className='pst-title c-white'>
                 <h5>Recent posts</h5>
-            </div>
+            </div> 
+      <div className='card-container'>
+           
+            
             {results.length > 0 ? (
                 results.map((post) => {
                 return(
                     <div key={post.id}>
-                        <Card style={{ width: '18rem' }} className='m-3'>
-                            <Card.Header>John some</Card.Header>
-                            <Card.Img variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
+                        <Card className='card-body m-3'>
+                            <Card.Header className='card-header'>
+                                <img className='card-header-image' src='https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80' alt="Header Image"/>
+                                John some</Card.Header>
+                            <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
                             <Card.Body>
                                 <Card.Title>{post.title}</Card.Title>
                                 <Card.Text>{post.body}</Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
-                                <ReactToPost id={post.id} symbol={'👍'} reactions={post._count.reactions} />
-                                <CommentToPost id={post.id} comments={post._count.comments} />
+                                <Button className='Like-button'><ReactToPost id={post.id}  reactions={post._count.reactions}/></Button>
+                                <Button ><CommentToPost id={post.id} comments={post._count.comments}/></Button>
+                                
                             </Card.Body>
                         </Card>
                     </div>

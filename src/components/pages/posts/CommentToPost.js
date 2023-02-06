@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { token } from '../../../constants/url/BaseUrl';
+import { CiChat2 } from "react-icons/ci";
+import '../../../App.css';
 
 
 const url = Base_Post_Url + 'posts'
@@ -44,8 +46,8 @@ function CommentToPost({id, comments}) {
 
   return (
     <div>
-        <button onClick={handleClick} type="button" className="btn btn-primary">
-            comments <span className="badge bg-secondary">{comments}</span>
+        <button onClick={handleClick} type="button" className="comment-button">
+            <CiChat2 /> 
         </button>
         {isOpen && (
             <>

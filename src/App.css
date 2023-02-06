@@ -1,8 +1,32 @@
 :root {
   --Home-background-image: #F9FBFC;
+  --White-color: #FFFFFF;
+  --Black-color: #1B1D27;
+  --Red-color: #DE4453;
+  --grey-color: #D9E0EA;
+  --bs-btn-bg: #ffff;
+
   --gap: 15px;
   --width: 240px;
   --height: var(--width);
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #ffff;
+    --bs-btn-border-color: none;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: none;
+    --bs-btn-hover-border-color: none;
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #0a58ca;
+    --bs-btn-active-border-color: #0a53be;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #0d6efd;
+    --bs-btn-disabled-border-color: #0d6efd;
+
 }
 
 
@@ -13,4 +37,46 @@
 .Post-container{
     height: 100vh;
     background-color: var(--Home-background-image);
+}
+.card-body{
+    border: none;
+    border-radius: 30px;
+    width: 18rem;
+    padding: 0;
+    background-color: var(--White-color);
+}
+.card-header{
+   border-bottom: none;
+   background-color: transparent;
+   display: flex;
+   align-items: center;
+   gap: 1em;
+}
+.card-header-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.card-image{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: .5em;
+}
+
+.Like-button, .comment-button{
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 24px;
+}
+.Like-button:hover,
+.comment-button:hover{
+    background-color: transparent;
+    color: black;
 }
