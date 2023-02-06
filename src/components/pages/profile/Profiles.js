@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { token } from '../../../constants/url/BaseUrl';
 import '../../../styles/profile/styles.scss'
-// import FollowPost from '../post/FollowPost';
+import FollowPost from '../posts/FollowPost';
 
 const url = Base_Post_Url + "profiles";
 
@@ -65,12 +65,7 @@ function Profiles() {
             displayedProfiles.map((profile) => {
                 return (
                     <div className='profile-card-container container' key={profile.name}>
-                        <div >
-                            <img className='card-banner' src={profile.banner || 'https://images.unsplash.com/photo-1638803040283-7a5ffd48dad5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'} alt={profile.banner}/>
-                        </div>
-                        <div className="card-profile">
-                            <img className='card-avatar' src={profile.avatar || 'https://images.unsplash.com/photo-1639628735078-ed2f038a193e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'} alt={profile.avatar}/>
-                        </div>
+                        
                         <div className="card-info">
                             <div className="info-title">
                                 <h6>{profile.name}</h6>
@@ -78,7 +73,7 @@ function Profiles() {
                         </div>
                         
                         <div className=''>
-                            {/* <FollowPost name={profile.name} /> */}
+                            <FollowPost name={profile.name} />
                         </div>
                     </div>
                  
