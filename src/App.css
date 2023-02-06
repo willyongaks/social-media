@@ -5,16 +5,14 @@
   --Red-color: #DE4453;
   --grey-color: #D9E0EA;
   --bs-btn-bg: #ffff;
+  --font-family: 'Poppins', sans-serif;
 
-  --gap: 15px;
-  --width: 240px;
-  --height: var(--width);
 }
 
 .btn-primary {
     --bs-btn-color: #fff;
-    --bs-btn-bg: #ffff;
-    --bs-btn-border-color: none;
+    --bs-btn-bg: black;
+    --bs-btn-border-color: black;
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: none;
     --bs-btn-hover-border-color: none;
@@ -27,6 +25,10 @@
     --bs-btn-disabled-bg: #0d6efd;
     --bs-btn-disabled-border-color: #0d6efd;
 
+}
+
+body{
+    font-family: var(--font-family);
 }
 
 

@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import '../../../App.css';
 
 
+
 const url = Base_Post_Url + "posts";
 
 const options = {
@@ -67,11 +68,10 @@ function Posts() {
                     <div key={post.id}>
                         <Card className='card-body m-3'>
                             <Card.Header className='card-header'>
-                                <img className='card-header-image' src='https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80' alt="Header Image"/>
-                                John some</Card.Header>
+                               <Card.Title>{post.title}</Card.Title>
+                            </Card.Header>
                             <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
                             <Card.Body>
-                                <Card.Title>{post.title}</Card.Title>
                                 <Card.Text>{post.body}</Card.Text>
                                 <Button className='Like-button'><ReactToPost id={post.id}  reactions={post._count.reactions}/></Button>
                                 <Button ><CommentToPost id={post.id} comments={post._count.comments}/></Button>

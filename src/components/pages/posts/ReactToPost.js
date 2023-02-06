@@ -16,7 +16,7 @@ const url = Base_Post_Url + "posts";
 function ReactToPost({id, symbol, reactions}) {
     const [isReact, setIsReact ] = useState(false);
     const [postId, setPostId] = useState(null);
-    const [count, setCount] = useState(reactions);
+    // const [count, setCount] = useState(reactions);
 
     const encodedSymbol = encodeURIComponent(symbol);
 
@@ -34,7 +34,7 @@ function ReactToPost({id, symbol, reactions}) {
                 if(results.id){
                     setPostId(results.id);
                     setIsReact(true);
-                    setCount(results.count);
+                    // setCount(results.count);
                 }
                 
             
