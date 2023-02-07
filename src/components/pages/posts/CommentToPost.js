@@ -13,7 +13,7 @@ import Form from 'react-bootstrap/Form';
 const url = Base_Post_Url + 'posts'
 
 const schema = yup.object().shape({
-    post: yup.string().required(),
+    Comment: yup.string().required(),
 })
 
 function CommentToPost({id}) {
@@ -36,6 +36,8 @@ function CommentToPost({id}) {
     const onSubmit = async (e) =>{
         e.preventDefault();
 
+        console.log("Post submitted!");
+
         try{
             const response = await fetch(`${url}/${id}/comment`,{
                 method: 'POST',
@@ -46,7 +48,11 @@ function CommentToPost({id}) {
                 }
             })
             if(response.ok){
-                const results = await response.json()
+                setPost('') // clears the textarea
+                setIsOpen(false) // closes the form
+                const results = await response.json();
+                console.log("Comment posted successfully", results);
+
                 console.log(results)
             }
 
@@ -63,25 +69,18 @@ function CommentToPost({id}) {
         </button>
         {isOpen && (
             <>
-            <FloatingLabel controlId="floatingTextarea2" label="Body">
-                        <Form.Control
-                        as="textarea"
-                        placeholder="Comment"
-                        className=''
-                        {...register('body')}
+            <FloatingLabel controlId="floatingTextarea2" label="Comment">
+                <Form.Control
+                    onChange={handleChannge} 
+                    as="textarea"
+                    placeholder="Comment"
+                    className=''
+                    {...register('Comment')}
                         
-                        />
-                        {errors.body && <div className="text-danger">{errors.body.message}</div>}
-                    </FloatingLabel>
-            {/* <textarea 
-            value={post} 
-            onChange={handleChannge} 
-            rows='3'
-            name='post'
-            {...register('post')}
-            >....</textarea>
-            {errors.title && <div className="text-danger">{errors.title.message}</div>}
-            <button onClick={handleSubmit(onSubmit)}>Post</button> */}
+                />
+                {errors.Comment && <div className="text-danger">{errors.Comment.message}</div>}
+            </FloatingLabel>
+            <button onClick={(e) => handleSubmit(e, onSubmit)}>Post</button>
              
             </>
            
