@@ -33,6 +33,24 @@
 
 
 
+// PROFILE DETAILS STYLES
+
+.profile-details-container{
+    height: 100vh;
+
+
+    .profile-details-banner img{
+        width: 100vw;
+        height: 150px;
+        object-fit: cover;
+    }
+    .profile-details-avatar img{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+}
+
 
 
 

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { token } from '../../../constants/url/BaseUrl';
+import '../../../styles/profile/styles.scss';
+import PostByProfile from '../posts/PostByProfile';
 
 
 const options = {
@@ -48,7 +50,7 @@ function ProfileDetails() {
             }
         }
         fetchData();
-    })
+    }, [name, url])
 
 
 
@@ -63,8 +65,18 @@ function ProfileDetails() {
     return <div>profile not found</div>;
     }
     return (
-        <div key={profile.name}>
-            <h1>{profile.name}</h1>
+        <div key={profile.name} className='profile-details-container'>
+            <div className='profile-details-banner'>
+                <img src={profile.banner || 'https://images.unsplash.com/photo-1497802176320-541c8e8de98d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80'} alt={profile.banner} />
+            </div>
+            <div className='profile-details-avatar'>
+                <img src={profile.avatar || 'https://images.unsplash.com/photo-1628260412297-a3377e45006f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'} alt={profile.banner} />
+            </div>
+            <h6>{profile.name}</h6>
+            <div className='profile-posts'>
+                <PostByProfile />
+            </div>
+
         </div>
     )
 }
