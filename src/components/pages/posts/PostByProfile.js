@@ -3,6 +3,10 @@ import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { token } from '../../../constants/url/BaseUrl';
+// import ReactToPost from './ReactToPost';
+// import CommentToPost from './CommentToPost';
+import Card from 'react-bootstrap/Card';
+import '../../../styles/postStyles/styles.scss';
 
 const options = {
     headers: {
@@ -58,6 +62,18 @@ function PostByProfile() {
         post.map((posts) => {
             return(
                 <div key={posts.id}>
+                    <Card className='card-body m-3'>
+                            <Card.Header className='card-header'>
+                               <Card.Title>{posts.title}</Card.Title>
+                            </Card.Header>
+                            <Card.Img className='card-image' variant="top" src={posts.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
+                            <Card.Body>
+                                <Card.Text>{posts.body}</Card.Text>
+                                {/* <ReactToPost id={posts.id}  reactions={post._count.reactions} className='Like-button'/>
+                                <CommentToPost id={posts.id} comments={post._count.comments} className='comment-button'/> */}
+                                
+                            </Card.Body>
+                        </Card>
                     <h1>{posts.title}</h1>
                 </div>
             )

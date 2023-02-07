@@ -20,7 +20,7 @@ A registered user may logout * DONE
 A registered user may view a list of Posts * DONE
 A registered user may view a list of Profiles * DONE
 A registered user may view a single Post by id
-A registered user may view a single Profile by name
+A registered user may view a single Profile by name * DONE
 A registered user may create a Post * DONE
 A registered user may update a Post they own
 A registered user may delete a Post they own
