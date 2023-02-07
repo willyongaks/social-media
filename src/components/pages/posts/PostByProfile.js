@@ -11,19 +11,22 @@ const options = {
 };
 
 
-const url = Base_Post_Url + 'profiles';
+
+
 
 function PostByProfile() {
     const [post, setPost] = useState({});
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null);
 
-    const { name, posts } = useParams();
+    const { name } = useParams();
+    
+    const url = `${Base_Post_Url}profiles/${name}/posts`;
 
     useEffect(() => {
         async function fetchPosts(){
             try{
-                const response = await fetch(`${url}/${name}/${posts}`, options);
+                const response = await fetch(url, options);
 
                 if(response.ok){
                     const json = await response.json();
