@@ -3,7 +3,6 @@ import { Base_Post_Url } from "../../../constants/url/BaseUrl";
 import { token } from '../../../constants/url/BaseUrl';
 import ReactToPost from './ReactToPost';
 import CommentToPost from './CommentToPost';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../../../styles/postStyles/styles.scss';
 

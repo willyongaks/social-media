@@ -39,7 +39,7 @@ function PostByProfile() {
             }
         }
         fetchPosts();
-    },[name])
+    },[name, url])
 
 
 
