@@ -56,34 +56,37 @@ function Profiles() {
     }
     
   return (
-    <div className=''>
+    <div className='container profile-section'>
         <div>
             <h6 className='text-center p-4 fw-bold'>Make connections</h6>
         </div>
         
-        {profiles.length > 0 ? (
+            {profiles.length > 0 ? (
             displayedProfiles.map((profile) => {
                 return (
-                    <div className='profile-card-container container' key={profile.name}>
-                        
-                        <div className="card-info">
-                            <div className="info-title">
-                                <h6>{profile.name}</h6>
+                    <a href='/profileDetails' className='profile-card-container' key={profile.name}>
+                        <div className='container profile-card-info' >
+                            <div className='profile-card-left'>
+                                <div className='profile-card-media'>
+                                    <img src={profile.avatar || 'https://images.unsplash.com/photo-1628260412297-a3377e45006f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'} alt={profile.avatar} />
+                                </div>
+                                <div className="profile-title">
+                                    <h6>{profile.name}</h6>
+                                </div>
+                            </div>
+                            
+                            <div className='profile-button'>
+                                <FollowPost name={profile.name} />
                             </div>
                         </div>
-                        
-                        <div className=''>
-                            <FollowPost name={profile.name} />
-                        </div>
-                    </div>
-                 
+                    </a>
+                    
                 )
             }) 
         ): (<p> No profiles found</p> )} 
         {displayedProfiles.length < profiles.length && (
             <button onClick={handleShowMore} className=''>Show More</button>
         )}
-
         
     </div>
   )
