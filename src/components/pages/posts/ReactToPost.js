@@ -55,7 +55,7 @@ function ReactToPost({id, symbol, reactions}) {
   return (
     <>  
         {postId && <p className="post-id">Post ID: {postId}</p>}
-        <button onClick={onSubmit} type="button" className=" Like-button">
+        <button onClick={onSubmit} className=" Like-button">
             {isReact ? symbol : symbol} <CiHeart/>
         </button>
     </>
