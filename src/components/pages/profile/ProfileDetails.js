@@ -18,7 +18,7 @@ function ProfileDetails() {
     const [error, setError] = useState(null);
 
     let navigate = useNavigate();
-    const { name } = useParams();
+    let { name } = useParams();
     
 
 
@@ -27,11 +27,13 @@ function ProfileDetails() {
     }
 
     const url = Base_Post_Url;
+    
 
     useEffect(() => {
-        async function fetchData({name}) {
+        async function fetchData() {
             try{
                 const response = await fetch(`${url}profiles/${name}`, options);
+                console.log(response)
 
                 if(response.ok){
                     const json = await response.json();
@@ -58,11 +60,11 @@ function ProfileDetails() {
         return <div>An error occured: {error}</div>;
     }
     if (!profile) {
-    return <div>Game not found</div>;
+    return <div>profile not found</div>;
     }
     return (
         <div key={profile.name}>
-            <h1 >{profile.name}</h1>
+            <h1>{profile.name}</h1>
         </div>
     )
 }
