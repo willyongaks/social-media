@@ -2,8 +2,14 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
+import { token } from '../../../constants/url/BaseUrl';
 
 
+const options = {
+    headers: {
+        Authorization: `Bearer ${token}`,
+    },
+};
 
 
 function ProfileDetails() {
@@ -12,12 +18,26 @@ function ProfileDetails() {
     const [error, setError] = useState(null);
 
     let navigate = useNavigate();
-    const { id } = useParams();
-    const url = Base_Post_Url(id);
+    const { name } = useParams();
+    
+
+
+    if(!name){
+    navigate("/home");
+    }
+
+    const url = Base_Post_Url;
 
     useEffect(() => {
-        async function fetchData() {
+        async function fetchData({name}) {
             try{
+                const response = await fetch(`${url}profiles/${name}`, options);
+
+                if(response.ok){
+                    const json = await response.json();
+                    setProfile(json);
+                    console.log(name)
+                }
 
             }catch(error){
                 setError(error);
@@ -25,6 +45,7 @@ function ProfileDetails() {
                 setLoading(false);
             }
         }
+        fetchData();
     })
 
 
@@ -40,7 +61,9 @@ function ProfileDetails() {
     return <div>Game not found</div>;
     }
     return (
-        <div>ProfileDetails</div>
+        <div key={profile.name}>
+            <h1 >{profile.name}</h1>
+        </div>
     )
 }
 

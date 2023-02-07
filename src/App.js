@@ -5,6 +5,7 @@ import Home from './components/pages/home/Home';
 import Profiles from './components/pages/profile/Profiles';
 import Navigation from './components/nav/Navigation';
 import { AuthProvider } from './context/AuthContext';
+import ProfileDetails from './components/pages/profile/ProfileDetails';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" element={ <FormDisplay />} />
           <Route path="/home" element={ <Home />} />
           <Route path="/profile" element={ <Profiles />} />
+          <Route path="/details/:id" element={ <ProfileDetails />} />
         </Routes>
         
       </Router>

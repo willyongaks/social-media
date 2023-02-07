@@ -67,7 +67,7 @@ function Profiles() {
                 return (
                     <div className='profile-card-container' key={profile.name}>
                         <div className='container profile-card-info' >
-                            <Link to={`details/${profile.id}`}>
+                            <Link to={`/details/${profile.name}`}>
                                 <div className='profile-card-left'>
                                     <div className='profile-card-media'>
                                         <img src={profile.avatar || 'https://images.unsplash.com/photo-1628260412297-a3377e45006f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'} alt={profile.avatar} />
