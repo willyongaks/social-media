@@ -5,7 +5,6 @@ import Home from './components/pages/home/Home';
 import { AuthProvider } from './context/AuthContext';
 import ProfileDetails from './components/pages/profile/ProfileDetails';
 import ProfileDash from './components/pages/profile/ProfileDash';
-import Layout from './components/layout/Layout';
 
 function App() {
   return (
