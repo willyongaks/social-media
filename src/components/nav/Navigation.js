@@ -10,8 +10,8 @@ function Navigation() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (auth === null) {
-            navigate("/");
+        if (auth) {
+            navigate("/layout");
         }
     }, [auth, navigate])
 
@@ -28,7 +28,6 @@ function Navigation() {
 			{auth ? (
                 <>
                 <Layout />
-                <button onClick={logout}>Log Out</button>
                 </>
                 ) : (
                     <Link to="/" />
