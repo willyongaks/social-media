@@ -50,9 +50,6 @@ function Navigation() {
                                 <Nav className="justify-content-center flex-grow-1 pe-3">
                                     <Link to="/home" className="nav-link">Home</Link>
                                     <Link to="/dashboard" className="nav-link">dashboard</Link>
-                                    <Link to="/dashboard" className="nav-link">dashboard</Link>
-                                    
-                                    
                                     <NavDropdown
                                         title="Dropdown"
                                         id={`offcanvasNavbarDropdown-expand-${expand}`}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Base_Post_Url } from "../../../constants/url/BaseUrl";
 import { token } from '../../../constants/url/BaseUrl';
 import ReactToPost from './ReactToPost';
-import CommentToPost from './CommentToPost';
+// import CommentToPost from './CommentToPost';
 import Card from 'react-bootstrap/Card';
 import '../../../styles/postStyles/styles.scss';
 
@@ -74,7 +74,7 @@ function Posts() {
                                 <Card.Text>{post.body}</Card.Text>
                                 <div className='card-button'>
                                   <ReactToPost id={post.id}  reactions={post._count.reactions} className='Like-button'/>
-                                  <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/>
+                                  {/* <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/> */}
                                 </div>
                                 
                                 
