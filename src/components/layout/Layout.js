@@ -5,8 +5,8 @@ import Home from '../pages/home/Home';
 function Layout() {
   return (
     <>
-        <Menu />
-        <Home />
+        {/* <Home /> */}
+        
     </>
   )
 }

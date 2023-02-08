@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import Layout from '../layout/Layout';
+import Menu from './Menu';
 
 
 
@@ -9,11 +10,11 @@ function Navigation() {
     const [auth, setAuth] = useContext(AuthContext);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (auth) {
-            navigate("/layout");
-        }
-    }, [auth, navigate])
+    
+    if (auth) {
+         navigate("/login");
+    }
+ 
 
 
     function logout() {
@@ -27,7 +28,8 @@ function Navigation() {
         <nav>
 			{auth ? (
                 <>
-                <Layout />
+
+                <Menu />
                 </>
                 ) : (
                     <Link to="/" />
