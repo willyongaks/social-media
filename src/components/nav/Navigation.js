@@ -16,10 +16,10 @@ function Navigation() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (auth) {
+        if (!auth) {
             navigate("/home");
         }
-    }, [auth])
+    }, [auth, navigate])
 
 
     function logout(){
@@ -49,7 +49,9 @@ function Navigation() {
                                 <Offcanvas.Body>
                                 <Nav className="justify-content-center flex-grow-1 pe-3">
                                     <Link to="/home" className="nav-link">Home</Link>
-                                    <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                                    <Link to="/dashboard" className="nav-link">dashboard</Link>
+                                    <Link to="/dashboard" className="nav-link">dashboard</Link>
+                                    
                                     
                                     <NavDropdown
                                         title="Dropdown"
@@ -88,4 +90,4 @@ function Navigation() {
   )
 }
 
-export default Navigation
+export default Navigation;
