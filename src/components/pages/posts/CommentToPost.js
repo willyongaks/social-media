@@ -18,7 +18,8 @@ const schema = yup.object().shape({
 
 function CommentToPost({id}) {
     const [isOpen, setIsOpen] = useState(false);
-    const [post, setPost] = useState("")
+    const [post, setPost] = useState("");
+    const [modalShow, setModalShow] = React.useState(false);
 
 
     const {register,handleSubmit,formState: { errors },} = useForm({
