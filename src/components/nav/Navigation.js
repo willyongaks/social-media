@@ -16,15 +16,21 @@ function Navigation() {
     }, [auth, navigate])
 
 
+    function logout() {
+    setAuth(null);
+    navigate("/");
+}
+    
     
 
   return (
         <nav>
 			{auth ? (
-				<>
-                <Layout />
+                <>
+                <Layout />
+                <button onClick={logout}>Log Out</button>
                 </>
-                ): (
+                ) : (
                     <Link to="/" />
             )} 
 		</nav>

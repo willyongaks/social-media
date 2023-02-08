@@ -15,8 +15,8 @@ function App() {
         <Navigation />
         <Routes>
           <Route exact path="/" element={ <FormDisplay />} />
-          <Route exact path="/layout" element={ <Layout />} />
-          <Route exact path="/home" element={ <Home />} />
+          <Route path="/layout" element={ <Layout />} />
+          <Route path="/home" element={ <Home />} />
           <Route path="/dashboard" element={ <ProfileDash />} />
           <Route path="/details/:name" element={ <ProfileDetails />} />
         </Routes>
