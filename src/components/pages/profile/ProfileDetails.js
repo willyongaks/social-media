@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { token } from '../../../constants/url/BaseUrl';
 import '../../../styles/profile/styles.scss';
-// import PostByProfile from '../posts/PostByProfile';
+import PostByProfile from '../posts/PostByProfile';
 
 
 const options = {
@@ -73,9 +73,9 @@ function ProfileDetails() {
                 <img src={profile.avatar || 'https://images.unsplash.com/photo-1628260412297-a3377e45006f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'} alt={profile.banner} />
             </div>
             <h6>{profile.name}</h6>
-            {/* <div className='profile-posts'>
+            <div className='profile-posts'>
                 <PostByProfile />
-            </div> */}
+            </div>
 
         </div>
     )
