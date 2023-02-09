@@ -13,6 +13,10 @@ function Menu() {
     const [auth, setAuth] = useContext(AuthContext);
     const navigate = useNavigate();
 
+    if (auth) {
+         navigate("/login");
+    }
+
     function logout(){
         setAuth(null);
         navigate('/')
