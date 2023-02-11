@@ -21,7 +21,7 @@ const url = BaseUrl + "login";
 
 
 let schema = yup.object().shape({
-       email: yup.string().required(),
+       email: yup.string().required("Email is required").email("Must be a valid email"),
        password: yup.string().required(),
    })
 
@@ -69,7 +69,7 @@ function Login(props) {
             setAuth(response.data);
         }catch(error){
             console.log(error)
-            setLoginError(error.toString())
+            setLoginError("There was an error logging in. Please check your username and password");
         }finally{
             setSubmitting(false)
         }
@@ -98,7 +98,7 @@ function Login(props) {
                     />
                     
                 </InputGroup>
-                {errors.email && <p>Email is required </p>}
+                {errors.email && <p>{errors.email.message} </p>}
                 
                 <InputGroup className="mb-3" controlid="formBasicPassword">
                     <InputGroup.Text>< CiLock /></InputGroup.Text>
@@ -110,7 +110,7 @@ function Login(props) {
                     />
                     
                 </InputGroup>
-                {errors.password && <p>Password is required </p>}
+                {errors.password && <p>{errors.password.message}</p>}
 
                 <div className='form-btns col-12'>
                     <Button 
