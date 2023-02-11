@@ -1,4 +1,3 @@
-import './App.css';
 import React from 'react';
 import FormDisplay from './components/forms/FormDisplay';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
@@ -12,17 +11,68 @@ function App() {
    <Router>
      <Menu />
      <Routes>
-      <Route exact path="/" element={ <FormDisplay />} />
+       <Route exact path="/" element={ <FormDisplay />} />
       <Route exact path="/home" element={ <Home />} />
       <Route exact path="/dashboard" element={ <ProfileDash />} />
-      </Routes>
+     </Routes>
+     
    </Router>
-
    </>
   )
 }
 
 export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import './App.css';
+// import React from 'react';
+// import FormDisplay from './components/forms/FormDisplay';
+// import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+// import Home from './components/pages/home/Home';
+// import ProfileDash from './components/pages/profile/ProfileDash';
+// import Menu from './components/nav/Menu';
+
+// function App() {
+//   return (
+//    <>
+//    <Router>
+//      <Menu />
+//      <Routes>
+//       <Route exact path="/" element={ <FormDisplay />} />
+//       <Route exact path="/home" element={ <Home />} />
+//       <Route exact path="/home" element={ <Menu />} />
+//       <Route exact path="/dashboard" element={ <ProfileDash />} />
+//       </Routes>
+//    </Router>
+
+//    </>
+//   )
+// }
+
+// export default App
 
 
 

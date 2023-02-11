@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from 'react';
+import React, { useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import Button from 'react-bootstrap/Button';
@@ -14,12 +14,6 @@ function Menu() {
     const [auth, setAuth] = useContext(AuthContext);
     const navigate = useNavigate();
 
-   
-    useEffect(() => {
-        if (auth) {
-            navigate("/home");
-        }
-    }, [auth, navigate])
 
      function logout(){
         setAuth(null);
@@ -33,7 +27,7 @@ function Menu() {
                         {['md'].map((expand) => (
                         <Navbar key={expand} bg="dark" variant="dark" expand={expand} className="mb-3">
                             <Container fluid>
-                                <Navbar.Brand to="/home">Soshols</Navbar.Brand>
+                                <Navbar.Brand to="/">Soshols</Navbar.Brand>
                                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                                 <Navbar.Offcanvas
                                 id={`offcanvasNavbar-expand-${expand}`}
