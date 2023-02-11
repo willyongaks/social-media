@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+// import { useNavigate } from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
@@ -16,6 +17,7 @@ import '../../../styles/loginStyles/styles.scss';
 
 
 const url = BaseUrl + "login";
+
 
 
 let schema = yup.object().shape({
@@ -37,6 +39,8 @@ function Login(props) {
 
     const [submitting, setSubmitting] = useState(false);
     const [loginError, setLoginError] = useState(null);
+
+   
   
 
     const {register,handleSubmit,formState: { errors },} = useForm({
@@ -54,7 +58,6 @@ function Login(props) {
             const response = await axios.post(url, data, options);
             console.log("response", response.data)
             setAuth(response.data);
-            console.log(auth)
         }catch(error){
             console.log(error)
             setLoginError(error.toString())
@@ -65,10 +68,8 @@ function Login(props) {
     }
 
 
-
   return (
       <>
-        
         <Form onSubmit={handleSubmit(onSubmit)}>
             
             <div className='form-heading pb-4'>
@@ -120,8 +121,7 @@ function Login(props) {
                     </Button>
                 </div>
             </fieldset>
-            
-            
+              
         </Form>
       </>
     

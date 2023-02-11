@@ -5,13 +5,13 @@ import Col from 'react-bootstrap/Col';
 import Posts from '../posts/Posts';
 import Profiles from '../profile/Profiles';
 import CreatePost from '../posts/CreatePost';
-import Navigation from '../../nav/Navigation';
+import Menu from '../../nav/Menu';
 
 
 function Home() {
   return (
     <>
-    <Navigation />
+    <Menu />
       <Row>
         <Col className='Post-container col-xl-8 col-md-8 col-12'>
           <Posts />

@@ -1,4 +1,4 @@
-import React, { useContext} from 'react';
+import React, { useContext, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
 import Button from 'react-bootstrap/Button';
@@ -8,55 +8,63 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+// import Home from '../pages/home/Home';
 
 function Menu() {
     const [auth, setAuth] = useContext(AuthContext);
     const navigate = useNavigate();
 
-    if (auth) {
-         navigate("/login");
-    }
+   
+    useEffect(() => {
+        if (auth) {
+            navigate("/home");
+        }
+    }, [auth, navigate])
 
-    function logout(){
+     function logout(){
         setAuth(null);
         navigate('/')
     }
+
   return (
-    <>
-        {['md'].map((expand) => (
-            <Navbar key={expand} bg="dark" variant="dark" expand={expand} className="mb-3">
-                <Container fluid>
-                <Navbar.Brand to="/home">Soshols</Navbar.Brand>
-                <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
-                <Navbar.Offcanvas
-                    id={`offcanvasNavbar-expand-${expand}`}
-                    aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-                    placement="end"
-                >
-                <Offcanvas.Header closeButton>
-                <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                    Offcanvas
-                </Offcanvas.Title>
-                </Offcanvas.Header>
-                <Offcanvas.Body>
-                    <Nav className="justify-content-center flex-grow-1 pe-3">
-                        <Link to="/home" className="nav-link">Home</Link>
-                        <Link to="/dashboard" className="nav-link">dashboard</Link>
-                <NavDropdown
-                    title="Dropdown"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`}
-                >
-                <NavDropdown.Item href="#action4">
-                    Another action
-                        </NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="/">
-                        <button onClick={logout} className="logout-Btn m-4">Log out</button>
-                    </NavDropdown.Item>
-                </NavDropdown>
-                </Nav>
-                    <Form className="d-flex">
-                    <Form.Control
+    <nav>
+		{auth ? (
+                    <>
+                        {['md'].map((expand) => (
+                        <Navbar key={expand} bg="dark" variant="dark" expand={expand} className="mb-3">
+                            <Container fluid>
+                                <Navbar.Brand to="/home">Soshols</Navbar.Brand>
+                                <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
+                                <Navbar.Offcanvas
+                                id={`offcanvasNavbar-expand-${expand}`}
+                                aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                                placement="end"
+                                >
+                                <Offcanvas.Header closeButton>
+                                    <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
+                                    Offcanvas
+                                    </Offcanvas.Title>
+                                </Offcanvas.Header>
+                                <Offcanvas.Body>
+                                <Nav className="justify-content-center flex-grow-1 pe-3">
+                                    <Link to="/home" className="nav-link">Home</Link>
+                                    <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                                    
+                                    <NavDropdown
+                                        title="Dropdown"
+                                        id={`offcanvasNavbarDropdown-expand-${expand}`}
+                                    >
+                                        <NavDropdown.Item href="#action4">
+                                        Another action
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item href="/">
+                                        <button onClick={logout} className="logout-Btn m-4">Log out</button>
+                                        </NavDropdown.Item>
+                                    </NavDropdown>
+                                    </Nav>
+                                    <Form className="d-flex">
+                                    <Form.Control
                                         type="search"
                                         placeholder="Search"
                                         className="me-2"
@@ -68,8 +76,14 @@ function Menu() {
                                 </Navbar.Offcanvas>
                             </Container>
                         </Navbar>
-        ))}
-    </>
+            ))}
+                    
+                    </>
+                ): (
+                    <Link to="/" />
+            )} 
+
+    </nav>
   )
 }
 
