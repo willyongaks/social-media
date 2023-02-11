@@ -2,8 +2,8 @@ import './App.css';
 import React from 'react';
 import FormDisplay from './components/forms/FormDisplay';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Home from './components/pages/home/Home';
-import ProfileDash from './components/pages/profile/ProfileDash';
+// import Home from './components/pages/home/Home';
+// import ProfileDash from './components/pages/profile/ProfileDash';
 import Menu from './components/nav/Menu';
 
 function App() {
