@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-// import { useNavigate } from 'react-router-dom'
+import React, { useContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
@@ -39,6 +39,15 @@ function Login(props) {
 
     const [submitting, setSubmitting] = useState(false);
     const [loginError, setLoginError] = useState(null);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (auth) {
+            navigate("/home");
+        }
+    }, [auth, navigate])
+
 
    
   
