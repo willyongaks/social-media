@@ -30,15 +30,42 @@ function ProfileDash() {
         <Container>
       <Row>
         <Col sm={7}>
-          <div className='db1'>
+          <div className='dbh1'>
             <div className='dashboard-banner'>
               <img src={authProfile.banner || 'https://images.unsplash.com/photo-1497802176320-541c8e8de98d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80'} alt={authProfile.banner} />
               <button>Update banner</button>
             </div>
-            <div>
-              <button className='dashboard-avatar'>
-                <img src={authProfile.avatar || 'https://images.unsplash.com/photo-1628260412297-a3377e45006f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'} alt={authProfile.avatar} />
-              </button>
+            <div className='dbh-prof-details'>
+              <div>
+                <button className='dashboard-avatar'>
+                  <img src={authProfile.avatar || 'https://images.unsplash.com/photo-1628260412297-a3377e45006f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'} alt={authProfile.avatar} />
+                </button>
+              </div>
+              <div className='dashboard-details'>
+                <div className='dash-name'>
+                  <h5>{authProfile.name}</h5>
+                </div>
+                <div className='dash-count'>
+                  <div className='posts'>
+                    <p>Post 
+                      <span>{authProfile._count.posts}</span>
+                    </p>
+                  </div>
+                  <div className='Following'>
+                    <p>Following 
+                      <span>{authProfile._count.following}</span>
+                    </p>
+                  </div>
+                  <div className='Followers'>
+                    <p>Followers 
+                      <span>{authProfile._count.followers}</span>
+                    </p>
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
             </div>
           </div>
           
