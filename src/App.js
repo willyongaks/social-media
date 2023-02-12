@@ -5,6 +5,7 @@ import Home from './components/pages/home/Home';
 import ProfileDash from './components/pages/profile/ProfileDash';
 import Menu from './components/nav/Menu';
 import ProfileDetails from './components/pages/profile/ProfileDetails';
+import PostDetails from './components/pages/posts/PostDetails';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route exact path="/home" element={ <Home />} />
       <Route exact path="/dashboard" element={ <ProfileDash />} />
       <Route exact path="/details/:name" element={ <ProfileDetails />} />
+      <Route exact path="/:id" element={ <PostDetails />} />
      </Routes>
      
    </Router>

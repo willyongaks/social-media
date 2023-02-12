@@ -5,6 +5,7 @@ import ReactToPost from './ReactToPost';
 // import CommentToPost from './CommentToPost';
 import Card from 'react-bootstrap/Card';
 import '../../../styles/postStyles/styles.scss';
+import { Link } from 'react-router-dom';
 
 
 
@@ -64,6 +65,7 @@ function Posts() {
             {results.length > 0 ? (
                 results.map((post) => {
                 return(
+                  <Link to={`/${post.id}`}>
                     <div key={post.id}>
                         <Card className='card-body m-3'>
                             <Card.Header className='card-header'>
@@ -81,6 +83,8 @@ function Posts() {
                             </Card.Body>
                         </Card>
                     </div>
+                  </Link>
+                    
                     
                 )
                 
