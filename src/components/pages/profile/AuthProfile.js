@@ -11,14 +11,7 @@ const options = {
     },
 };
 
-
-function AuthProfile() {
-    const [authProfile, setAuthProfile] = useState({});
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-
- const fetchData = async () => {
+ export const fetchData = async (setAuthProfile, setLoading,setError) => {
       try {
         const response = await fetch(profileUrl, options);
         if (!response.ok) {
@@ -32,11 +25,20 @@ function AuthProfile() {
         setError(error);
         setLoading(false);
       }
-    };
+};
+
+
+function AuthProfile() {
+    const [authProfile, setAuthProfile] = useState({});
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+
+
 
     
   useEffect(() => {
-    fetchData();
+    fetchData(setAuthProfile, setLoading,setError);
   }, []);
 
  
