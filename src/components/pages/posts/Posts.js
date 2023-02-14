@@ -56,7 +56,7 @@ function Posts() {
   return (
 
     <> 
-           <div className='pst-title c-white'>
+           <div className='pst-title c-white container'>
                 <h5 className='Post-heading'>Recent posts</h5>
             </div> 
       <div className='card-container'>
