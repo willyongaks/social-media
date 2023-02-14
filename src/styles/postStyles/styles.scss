@@ -1,6 +1,32 @@
+:root{
+  --heading-font-size: 28px;
+  --title-font-size: 17px;
+   --font-family: 'Poppins', sans-serif;
+
+  // color
+  --main-color: #000000;
+}
+
+
+.link{
+  text-decoration: none;
+  color: var(--main-color);
+  font-family: var(--font-family);
+
+  &:hover{
+    color: var(--main-color);
+  }
+}
+
+.Post-heading {
+  font-size: var(--heading-font-size);
+  text-transform: uppercase;
+}
+
 .Post-container {
   min-height: 100vh;
   background-color: var(--Home-background-image);
+  
 
   .card-body {
     border: none;
@@ -16,13 +42,30 @@
     display: flex;
     align-items: center;
     gap: 1em;
+    text-decoration: none;
+
+
+    .card-title{
+      text-decoration: none;
+      font-size: var(--title-font-size);
+      font-weight: 500;
+      text-transform: capitalize;
+      padding: .1em;
+    }
 
     .card-header-image {
       width: 50px;
       height: 50px;
       border-radius: 50%;
     }
+
+    
   }
+  .card-text{
+      font-size: 14px;
+      font-family: var(--font-family);
+      padding: .1em;
+    }
 
   .card-container {
     display: flex;

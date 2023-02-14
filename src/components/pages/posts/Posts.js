@@ -57,7 +57,7 @@ function Posts() {
 
     <> 
            <div className='pst-title c-white'>
-                <h5>Recent posts</h5>
+                <h5 className='Post-heading'>Recent posts</h5>
             </div> 
       <div className='card-container'>
            
@@ -65,15 +65,15 @@ function Posts() {
             {results.length > 0 ? (
                 results.map((post) => {
                 return(
-                  <Link to={`/${post.id}`}>
+                  <Link to={`/${post.id}`} className='link'>
                     <div key={post.id}>
                         <Card className='card-body m-3'>
                             <Card.Header className='card-header'>
-                               <Card.Title>{post.title}</Card.Title>
+                               <Card.Title className='card-title'>{post.title}</Card.Title>
                             </Card.Header>
                             <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
                             <Card.Body>
-                                <Card.Text>{post.body}</Card.Text>
+                                <Card.Text className='card-text'>{post.body}</Card.Text>
                                 <div className='card-button'>
                                   <ReactToPost id={post.id}  reactions={post._count.reactions} className='Like-button'/>
                                   {/* <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/> */}
