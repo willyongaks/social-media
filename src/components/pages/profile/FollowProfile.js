@@ -1,32 +1,36 @@
-import React, { useState} from 'react'
+ import React, { useState} from 'react'
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { token } from '../../../constants/url/BaseUrl';
 
 
 
  const url = Base_Post_Url + "profiles";
-function FollowPost({name}) {
+ 
+function FollowProfile({name}) {
     const [following, setFollowing] = useState(false);
+    
 
    const handleFollow = async () => {
     try {
+
         if (following) {
-            const unfollowResponse = await fetch(`${url}/${name}/unfollow`,{
+            const follow = await fetch(`${url}/${name}/follow`,{
                 method: 'PUT',
             });
-            if (!unfollowResponse.ok) {
-                throw new Error(unfollowResponse.statusText);
+            if (!follow.ok) {
+                throw new Error(follow.statusText);
             }
         } else {
-            const followResponse = await fetch(`${url}/${name}/follow`,{
+            const unFollow = await fetch(`${url}/${name}/unfollow`,{
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
-            if (!followResponse.ok) {
-                throw new Error(followResponse.statusText);
+            if (!unFollow.ok) {
+                throw new Error(unFollow.statusText);
             }
+            console.log(name)
         }
         setFollowing(!following);
     } catch (error) {
@@ -42,4 +46,4 @@ function FollowPost({name}) {
   )
 }
 
-export default FollowPost
+export default FollowProfile;

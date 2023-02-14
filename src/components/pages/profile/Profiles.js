@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { token } from '../../../constants/url/BaseUrl';
 import '../../../styles/profile/styles.scss'
-import FollowPost from '../posts/FollowPost';
 import { Link } from 'react-router-dom';
+import FollowProfile from './FollowProfile';
 
 const url = Base_Post_Url + "profiles";
 
@@ -78,7 +78,7 @@ function Profiles() {
                                 </div>
                             </Link>
                             <div className='profile-button'>
-                                <FollowPost name={profile.name} />
+                                <FollowProfile name={profile.name} />
                             </div>
                         </div>
                    </div>
