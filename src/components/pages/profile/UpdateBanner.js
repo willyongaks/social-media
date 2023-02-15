@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -18,7 +18,7 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form.Label htmlFor="basic-url">Your vanity URL</Form.Label>
+        <Form.Label htmlFor="basic-url">Must be a valid url</Form.Label>
           <InputGroup className="mb-3">
             <InputGroup.Text id="basic-addon3">
               https://example.com/
@@ -34,7 +34,7 @@ function MyVerticallyCenteredModal(props) {
 }
 
 function UpdateBanner() {
-  const [modalShow, setModalShow] = React.useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   return (
     <>
