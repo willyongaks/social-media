@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Base_Post_Url } from "../../../constants/url/BaseUrl";
 import { token } from '../../../constants/url/BaseUrl';
 import ReactToPost from './ReactToPost';
-// import CommentToPost from './CommentToPost';
+import CommentToPost from './CommentToPost';
 import Card from 'react-bootstrap/Card';
 import '../../../styles/postStyles/styles.scss';
 import { Link } from 'react-router-dom';
@@ -56,34 +56,32 @@ function Posts() {
   return (
 
     <> 
-           <div className='pst-title c-white container'>
-                <h5 className='Post-heading'>Recent posts</h5>
-            </div> 
+      <div className='pst-title c-white container'>
+        <h5 className='Post-heading'>Recent posts</h5>
+      </div> 
       <div className='card-container'>
-           
-            
-            {results.length > 0 ? (
-                results.map((post) => {
-                return(
-                  <Link to={`/${post.id}`} className='link' key={post.id}>
-                    <div>
-                        <Card className='card-body m-3'>
-                            <Card.Header className='card-header'>
-                               <Card.Title className='card-title'>{post.title}</Card.Title>
-                            </Card.Header>
-                            <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
-                            <Card.Body>
-                                <Card.Text className='card-text'>{post.body}</Card.Text>
-                                <div className='card-button'>
-                                  <ReactToPost id={post.id}  reactions={post._count.reactions} className='Like-button'/>
-                                  {/* <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/> */}
-                                </div>
-                                
-                                
+        {results.length > 0 ? (
+          results.map((post) => {
+        return(
+          <div key={post.id}>
+            <Card className='card-body m-3'>
+              <Card.Header className='card-header'>
+                <Card.Title className='card-title'>{post.title}</Card.Title>
+              </Card.Header>
+              <Link to={`/${post.id}`} className='link' >
+                <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
+              </Link>
+              <Card.Body>
+                <Card.Text className='card-text'>{post.body}</Card.Text>
+                  <div className='card-button'>
+                    <ReactToPost id={post.id}  reactions={post._count.reactions} className='Like-button'/>
+                    <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/>
+                  </div>
                             </Card.Body>
                         </Card>
+                      
                     </div>
-                  </Link>
+                 
                     
                     
                 )

@@ -4,6 +4,7 @@ import '../../../styles/profile/profileDash.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import UpdateBanner from './UpdateBanner';
 
 
 function ProfileDash() {
@@ -33,7 +34,7 @@ function ProfileDash() {
           <div className='dbh1'>
             <div className='dashboard-banner'>
               <img src={authProfile.banner || 'https://images.unsplash.com/photo-1497802176320-541c8e8de98d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80'} alt={authProfile.banner} />
-              <button>Update banner</button>
+             <UpdateBanner className='update-banner-button'/>
             </div>
             <div className='dbh-prof-details'>
               <div>
