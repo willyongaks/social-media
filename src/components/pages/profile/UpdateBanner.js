@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -19,37 +19,6 @@ const schema = yup.object().shape({
   avatar: yup.string().required(),
 });
 
-function BannerInput({ register, error }) {
-  return (
-    <InputGroup className="mb-3">
-      <InputGroup.Text id="basic-addon3">
-        Banner
-      </InputGroup.Text>
-      <Form.Control
-        id="banner"
-        aria-describedby="basic-addon3"
-        {...register('banner')}
-      />
-      {error && <div className="text-danger">{error.message}</div>}
-    </InputGroup>
-  );
-}
-
-function AvatarInput({ register, error }) {
-  return (
-    <InputGroup className="mb-3">
-      <InputGroup.Text id="basic-addon3">
-        Avatar
-      </InputGroup.Text>
-      <Form.Control
-        id="avatar"
-        aria-describedby="basic-addon3"
-        {...register('avatar')}
-      />
-      {error && <div className="text-danger">{error.message}</div>}
-    </InputGroup>
-  );
-}
 
 function UpdateBanner() {
   const [show, setShow] = useState(false);
