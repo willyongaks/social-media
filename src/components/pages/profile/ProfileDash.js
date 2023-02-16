@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import UpdateBanner from './UpdateBanner';
+import AuthPosts from './AuthPosts';
 
 
 function ProfileDash() {
@@ -74,6 +75,7 @@ function ProfileDash() {
         <Col sm={4}>
           <div>
             <h4>What to display ?</h4>
+            <AuthPosts />
           </div>
         </Col>
       </Row>

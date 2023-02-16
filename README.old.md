@@ -13,22 +13,23 @@ All admin functionality is managed by an existing application. This project only
 User Stories
 The client has specified the following requirements in the form of User Stories:
 
-A user with a stud.noroff.no email may register * DONE
+<!-- A user with a stud.noroff.no email may register * DONE
 A registered user may login * DONE
-A registered user may update their avatar and banner
+A registered user may update their avatar and banner *DONE
 A registered user may logout * DONE
 A registered user may view a list of Posts * DONE
 A registered user may view a list of Profiles * DONE
 A registered user may view a single Post by id * DONE
 A registered user may view a single Profile by name * DONE
-A registered user may create a Post * DONE
+A registered user may create a Post * DONE -->
 A registered user may update a Post they own
 A registered user may delete a Post they own
 A registered user may create a Comment on any Post
 A registered user may react to any Post with an emoji
 A registered user may follow and unfollow another Profile
 
-FINISHED 8 OF 14
+FINISHED 9 OF 14 
+REMAINING 5
 
 
 Technical Restrictions
