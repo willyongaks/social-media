@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import UpdateBanner from './UpdateBanner';
 import AuthPosts from './AuthPosts';
+import CreatePost from '../posts/CreatePost';
 
 
 function ProfileDash() {
@@ -45,7 +46,7 @@ function ProfileDash() {
               </div>
               <div className='dashboard-details'>
                 <div className='dash-name'>
-                  <h5>{authProfile.name}</h5>
+                  <CreatePost />
                 </div>
                 <div className='dash-count'>
                   <div className='posts'>

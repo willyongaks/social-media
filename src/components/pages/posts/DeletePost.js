@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
 
 function DeletePost({ postId }) {
-    const [deletedPost, setDeletedPost] = useState()
+    const [ setDeletedPost] = useState()
 
     const url = `${Base_Post_Url}posts/${postId}`
 
