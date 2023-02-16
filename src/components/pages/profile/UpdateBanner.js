@@ -9,10 +9,7 @@ import { useForm } from 'react-hook-form';
 import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
 
 
-const auth = localStorage.getItem('auth')
-const name = JSON.parse(auth).name;
 
-const url = `${Base_Post_Url}profiles/${name}/media`
 
 const schema = yup.object().shape({
   banner: yup.string().required(),
@@ -26,6 +23,12 @@ function UpdateBanner() {
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
+  
+  
+  const auth = localStorage.getItem('auth')
+  const name = JSON.parse(auth)?.name;
+
+  const url = `${Base_Post_Url}profiles/${name}/media`
  
 
   const handleClose = () => setShow(false);

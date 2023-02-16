@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
 import Card from 'react-bootstrap/Card';
 
-const auth = localStorage.getItem('auth')
-const name = JSON.parse(auth).name;
-const url = `${Base_Post_Url}profiles/${name}/posts`
+
 
 function AuthPosts() {
     const[post, setPost] = useState([]);
     const[loading, setLoading] = useState(true);
     const[error, setError] = useState(null);
+    
+    const auth = localStorage.getItem('auth')
+    const name = JSON.parse(auth)?.name;
+    const url = `${Base_Post_Url}profiles/${name}/posts`
 
     useEffect(() => {
         async function fetchPost(){
@@ -56,8 +58,8 @@ function AuthPosts() {
               <Card.Body>
                 <Card.Text className='card-text'>{post.body}</Card.Text>
                 <div className='card-button'>
-                  {/* <ReactToPost id={post.id} reactions={post._count.reactions} className='Like-button' />
-                  <CommentToPost id={post.id} comments={post._count.comments} className='comment-button' /> */}
+                  <button>Update post</button>
+                  <button>Delete post</button>
                 </div>
               </Card.Body>
             </Card>

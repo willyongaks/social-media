@@ -12,7 +12,6 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 function Menu() {
     const [auth, setAuth] = useContext(AuthContext);
     const navigate = useNavigate();
-    console.log(auth.name)
 
 
      function logout(){
