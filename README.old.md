@@ -23,13 +23,13 @@ A registered user may view a single Post by id * DONE
 A registered user may view a single Profile by name * DONE
 A registered user may create a Post * DONE -->
 A registered user may update a Post they own
-A registered user may delete a Post they own
+<!-- A registered user may delete a Post they own -->
 A registered user may create a Comment on any Post
 A registered user may react to any Post with an emoji
 A registered user may follow and unfollow another Profile
 
-FINISHED 9 OF 14 
-REMAINING 5
+FINISHED 10 OF 14 
+REMAINING 4
 
 
 Technical Restrictions
