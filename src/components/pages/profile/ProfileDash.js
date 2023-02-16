@@ -74,7 +74,6 @@ function ProfileDash() {
         </Col>
         <Col sm={4}>
           <div>
-            <h4>What to display ?</h4>
             <AuthPosts />
           </div>
         </Col>
