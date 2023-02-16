@@ -7,16 +7,9 @@ import { useForm } from 'react-hook-form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
-// import { token } from '../../../constants/url/BaseUrl';
 import Modal from 'react-bootstrap/Modal';
 import AuthProfile from '../profile/AuthProfile';
 
-
-// const options = {
-//     headers: {
-//         Authorization: `Bearer ${token}`,
-//     },
-// };
 
 
 
@@ -66,7 +59,6 @@ function CreatePost() {
                 },  
             });
             console.log(data)
-            // console.log("new post is added")
             const jsonData = await response.json();
             if (!response.ok) {
                 throw new Error(jsonData.message)
@@ -96,7 +88,7 @@ function CreatePost() {
 
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Create new Post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <Form onSubmit={handleSubmit(onSubmit)}>
