@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
 import Card from 'react-bootstrap/Card';
+import DeletePost from '../posts/DeletePost';
 
 
 
@@ -33,7 +34,7 @@ function AuthPosts() {
             }
         }
         fetchPost()
-    },[])
+    },[url])
 
     if(loading){
         return <div>Loading...</div>
@@ -59,7 +60,7 @@ function AuthPosts() {
                 <Card.Text className='card-text'>{post.body}</Card.Text>
                 <div className='card-button'>
                   <button>Update post</button>
-                  <button>Delete post</button>
+                  <DeletePost postId={post.id}/>
                 </div>
               </Card.Body>
             </Card>
