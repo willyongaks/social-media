@@ -17,7 +17,7 @@ function App() {
       <Route exact path="/home" element={ <Home />} />
       <Route exact path="/dashboard" element={ <ProfileDash />} />
       <Route exact path="/details/:name" element={ <ProfileDetails />} />
-      <Route exact path="/:id" element={ <PostDetails />} />
+      <Route exact path="/post/:id" element={ <PostDetails />} />
      </Routes>
      
    </Router>

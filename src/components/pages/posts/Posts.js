@@ -68,7 +68,7 @@ function Posts() {
               <Card.Header className='card-header'>
                 <Card.Title className='card-title'>{post.title}</Card.Title>
               </Card.Header>
-              <Link to={`/${post.id}`} className='link' >
+              <Link to={`/post/${post.id}`} className='link' >
                 <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
               </Link>
               <Card.Body>

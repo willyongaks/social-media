@@ -11,8 +11,7 @@ function ProfilesPost({profName}) {
     const[loading, setLoading] = useState(true);
     const[error, setError] = useState(null);
     
-    const auth = localStorage.getItem('auth')
-    const name = JSON.parse(auth)?.name;
+
     const url = `${Base_Post_Url}profiles/${profName}/posts`
 
     useEffect(() => {

@@ -1,21 +1,23 @@
  import React, { useState} from 'react'
-import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-import { token } from '../../../constants/url/BaseUrl';
+import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
 
 
 
- const url = Base_Post_Url + "profiles";
- 
+
 function FollowProfile({name}) {
     const [following, setFollowing] = useState(false);
     
+    const url = Base_Post_Url + "profiles";
 
    const handleFollow = async () => {
     try {
 
-        if (following) {
+        if (!following) {
             const follow = await fetch(`${url}/${name}/follow`,{
                 method: 'PUT',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
             });
             if (!follow.ok) {
                 throw new Error(follow.statusText);
