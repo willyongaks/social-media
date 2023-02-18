@@ -20,7 +20,7 @@ function Posts() {
 
 
   const auth = localStorage.getItem('auth')
-  const testToken = JSON.parse(auth).accessToken;
+  const token = JSON.parse(auth).accessToken;
 
 
   
@@ -29,7 +29,7 @@ function Posts() {
       try{
         const response = await fetch(url, {
           headers: {
-            'Authorization': `Bearer ${testToken}`
+            'Authorization': `Bearer ${token}`
           }
         });
         if(!response.ok){
@@ -47,7 +47,7 @@ function Posts() {
     }
 
     fetchData()
-  }, [])
+  }, [token])
 
   if(loading){
     return <p>loading.....</p>

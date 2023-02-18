@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
+import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 
 function FollowProfile({ name }) {
   const [following, setFollowing] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const url = Base_Post_Url + 'profiles';
+
+  const auth = localStorage.getItem('auth')
+  const token = JSON.parse(auth).accessToken;
 
   const handleFollow = async () => {
   try {
@@ -62,7 +65,7 @@ function FollowProfile({ name }) {
       }
     };
     fetchProfile();
-  }, [url, name]);
+  }, [url, name,token]);
 
   if (loading) {
     return <p>Loading...</p>;

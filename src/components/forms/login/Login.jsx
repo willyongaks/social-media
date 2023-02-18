@@ -11,7 +11,6 @@ import { RxEnvelopeClosed } from "react-icons/rx";
 import { CiLock } from "react-icons/ci";
 import { BaseUrl } from "../../../constants/url/BaseUrl";
 import AuthContext from '../../../context/AuthContext';
-import { token } from '../../../constants/url/BaseUrl';
 import '../../../styles/loginStyles/styles.scss';
 
 
@@ -26,12 +25,6 @@ let schema = yup.object().shape({
    })
 
 
-const options = {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-};
-
 
 
 function Login(props) {
@@ -39,6 +32,9 @@ function Login(props) {
 
     const [submitting, setSubmitting] = useState(false);
     const [loginError, setLoginError] = useState(null);
+
+    const authy = localStorage.getItem('auth')
+    const token = JSON.parse(authy).accessToken;
 
     const navigate = useNavigate();
 
@@ -64,7 +60,11 @@ function Login(props) {
         setLoginError(null);
 
         try{
-            const response = await axios.post(url, data, options);
+            const response = await axios.post(url, data, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             console.log("response", response.data)
             setAuth(response.data);
         }catch(error){

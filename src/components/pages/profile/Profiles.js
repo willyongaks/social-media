@@ -1,23 +1,20 @@
 import { useState, useEffect } from 'react'
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-import { token } from '../../../constants/url/BaseUrl';
 import '../../../styles/profile/styles.scss'
 import { Link } from 'react-router-dom';
 import FollowProfile from './FollowProfile';
 
 const url = Base_Post_Url + "profiles";
 
-const options = {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-};
+
 
 function Profiles() {
     const [profiles, setProfiles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const auth = localStorage.getItem('auth')
+    const token = JSON.parse(auth).accessToken;
   
     const [displayedProfiles, setDisplayedProfiles] = useState(profiles);
 
@@ -25,7 +22,11 @@ function Profiles() {
     useEffect(() => {
          async function fetchProfiles() {
              try{
-                 const response = await fetch(url, options);
+                 const response = await fetch(url, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                 });
                  if(!response.ok) {
                      throw new Error(response.statusText)
                  }
@@ -42,7 +43,7 @@ function Profiles() {
              }
          }
          fetchProfiles();
-    }, []);
+    }, [token]);
 
     const handleShowMore = () => {
         const nextFiveProf = profiles.slice(displayedProfiles.length,displayedProfiles.length + 5);
