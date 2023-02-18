@@ -42,29 +42,13 @@ function Menu() {
                                 <Nav className="justify-content-center flex-grow-1 pe-3">
                                     <Link to="/home" className="nav-link">Home</Link>
                                     <Link to="/dashboard" className="nav-link">Dashboard</Link>
-                                    
-                                    <NavDropdown
-                                        title="Dropdown"
-                                        id={`offcanvasNavbarDropdown-expand-${expand}`}
-                                    >
-                                        <NavDropdown.Item href="#action4">
-                                        Another action
-                                        </NavDropdown.Item>
-                                        <NavDropdown.Divider />
-                                        <NavDropdown.Item href="/">
-                                        <button onClick={logout} className="logout-Btn m-4">Log out</button>
-                                        </NavDropdown.Item>
-                                    </NavDropdown>
                                     </Nav>
-                                    <Form className="d-flex">
-                                    <Form.Control
-                                        type="search"
-                                        placeholder="Search"
-                                        className="me-2"
-                                        aria-label="Search"
-                                    />
-                                    <Button variant="outline-success">Search</Button>
-                                    </Form>
+                                    <Nav className="d-flex">
+                                    <Button variant="outline-success"
+                                        onClick={logout}
+                                        className="logout-Btn"
+                                        >Log out</Button>
+                                    </Nav>
                                 </Offcanvas.Body>
                                 </Navbar.Offcanvas>
                             </Container>
