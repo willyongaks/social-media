@@ -11,6 +11,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { RxEnvelopeClosed } from "react-icons/rx";
 import { CiLock } from "react-icons/ci";
 import { CgProfile } from "react-icons/cg";
+import '../../../styles/loginStyles/styles.scss';
 
 
 const url = BaseUrl + "register";
@@ -54,7 +55,8 @@ function Reg(props) {
     }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+      <section className='reg-container'>
+          <Form onSubmit={handleSubmit(onSubmit)}>
         <div className='form-heading pb-4'>
                 <h1>
                     Welcome to your <br/>
@@ -133,6 +135,7 @@ function Reg(props) {
         
         
     </Form>
+      </section>
   )
 }
 

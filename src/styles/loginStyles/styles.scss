@@ -1,9 +1,66 @@
 
-.login-btn, .register-btn{
-    background-color: black;
-
-    &:hover{
-        background-color: transparent;
-        color: black;
-    }
+.login-container, .reg-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: bisque;
 }
+body{
+  background-color: #232323;
+}
+
+
+.form-btns{
+  display:  flex;
+  justify-content: space-between;
+
+}
+.login-btn{
+  background-color: #0077B7;
+  border-radius: 47px;
+  color: #000000;
+}
+.login-btn:hover{
+  background-color: transparent;
+  color: #000000;
+  border: 1px solid #0077B7;
+}
+.reg-form-btns{
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.reg-login-btn{
+  border: none;
+  background-color: transparent;
+  color: #000000;
+  text-decoration: underline;
+}
+
+.reg-login-btn:hover{
+  background-color: transparent;
+  color: #0077B7;
+}
+.reg-reg-btn{
+  background-color: #0077B7;
+  border-radius: 47px;
+}
+.reg-reg-btn:hover{
+  background-color: transparent;
+  border: 1px solid #0077B7;
+  color: #000000;
+}
+
+.register-btn{
+  background-color: transparent;
+  border: 1px solid #0077B7;
+  color: #000000;
+  border-radius: 47px;
+}
+.register-btn:hover{
+  background-color: #0077B7;
+  color: #000000;
+}
+
