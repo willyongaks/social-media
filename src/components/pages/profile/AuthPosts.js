@@ -3,6 +3,7 @@ import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
 import Card from 'react-bootstrap/Card';
 import DeletePost from '../posts/DeletePost';
 import UpdatePost from '../posts/UpdatePost';
+import '../../../styles/profile/profileDash.scss';
 
 
 
