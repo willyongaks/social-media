@@ -1,20 +1,20 @@
 import React, {useEffect, useState, } from 'react';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { useParams, useNavigate } from "react-router-dom";
-import { token } from '../../../constants/url/BaseUrl';
 import Card from 'react-bootstrap/Card';
 import ReactToPost from './ReactToPost';
 
-const options = {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-};
+
+
+
 
 function PostDetails() {
     const [results, setResults] =useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    const auth = localStorage.getItem('auth')
+    const token = JSON.parse(auth).accessToken;
 
     let navigate = useNavigate();
     let { id } = useParams();
@@ -28,7 +28,11 @@ function PostDetails() {
     useEffect(() => {
         const fetchPost = async () =>{
             try{
-                const response = await fetch(url,options);
+                const response = await fetch(url, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
                 console.log(response)
                 if(response.ok){
                     const json = await response.json();

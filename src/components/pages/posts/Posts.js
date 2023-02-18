@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Base_Post_Url } from "../../../constants/url/BaseUrl";
-import { token } from '../../../constants/url/BaseUrl';
 import ReactToPost from './ReactToPost';
 import CommentToPost from './CommentToPost';
 import Card from 'react-bootstrap/Card';
@@ -11,22 +10,28 @@ import { Link } from 'react-router-dom';
 
 const url = Base_Post_Url + "posts";
 
-const options = {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-};
 
 
 function Posts() {
   const [results, setResults] =useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+
+
+
+  const auth = localStorage.getItem('auth')
+  const testToken = JSON.parse(auth).accessToken;
+
+
   
   useEffect(() => {
     const fetchData = async () => {
       try{
-        const response = await fetch(url, options);
+        const response = await fetch(url, {
+          headers: {
+            'Authorization': `Bearer ${testToken}`
+          }
+        });
         if(!response.ok){
           throw new Error(response.statusText);
         }

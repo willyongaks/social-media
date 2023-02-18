@@ -99,8 +99,14 @@
     }
 }
 
-.card-button{
+.auth-card-button{
     display: flex;
     justify-content: space-between;
     padding-right: 1em;
+
+}
+.delete-button{
+    background-color: #0077B7;
+    border-radius: 47px;
+    color: #000000;
 }

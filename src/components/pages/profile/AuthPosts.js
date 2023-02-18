@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
+import { Base_Post_Url} from '../../../constants/url/BaseUrl';
 import Card from 'react-bootstrap/Card';
 import DeletePost from '../posts/DeletePost';
 import UpdatePost from '../posts/UpdatePost';
@@ -14,6 +14,7 @@ function AuthPosts() {
     
     const auth = localStorage.getItem('auth')
     const name = JSON.parse(auth)?.name;
+    const token = JSON.parse(auth).accessToken;
     const url = `${Base_Post_Url}profiles/${name}/posts`
 
     useEffect(() => {
@@ -36,7 +37,7 @@ function AuthPosts() {
             }
         }
         fetchPost()
-    },[url])
+    },[url, token])
 
     if(loading){
         return <div>Loading...</div>
@@ -60,9 +61,9 @@ function AuthPosts() {
               <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
               <Card.Body>
                 <Card.Text className='card-text'>{post.body}</Card.Text>
-                <div className='card-button'>
+                <div className='auth-card-button'>
                   <UpdatePost postId={post.id}/>
-                  <DeletePost postId={post.id}/>
+                  <DeletePost postId={post.id} className='delete-button'/>
                 </div>
               </Card.Body>
             </Card>
