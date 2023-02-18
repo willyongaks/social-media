@@ -15,6 +15,9 @@
 .dbh1{
     background-color: #fff;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .dashboard-banner{
@@ -51,7 +54,7 @@
     box-sizing: border-box;
     border-radius: 49.9%;
     border: 1px solid #fff;
-    padding: 10px;
+    padding: 0;
     margin-top: -112px;
     z-index: 4;
     background-color: #fff;
