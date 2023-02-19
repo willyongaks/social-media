@@ -1,18 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { token } from '../../../constants/url/BaseUrl';
-// import ReactToPost from './ReactToPost';
+import ReactToPost from './ReactToPost';
 // import CommentToPost from './CommentToPost';
 import Card from 'react-bootstrap/Card';
 import '../../../styles/postStyles/styles.scss';
+import AuthContext from '../../../context/AuthContext';
 
-const options = {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-};
+
 
 
 
@@ -24,13 +21,18 @@ function PostByProfile() {
     const [error, setError] = useState(null);
 
     const { name } = useParams();
+    const auth = useContext(AuthContext)
     
     const url = `${Base_Post_Url}profiles/${name}/posts`;
 
     useEffect(() => {
         async function fetchPosts(){
             try{
-                const response = await fetch(url, options);
+                const response = await fetch(url, {
+                    headers: {
+                        Authorization: `Bearer ${auth.accessToken}`,
+                    },
+                });
 
                 if(response.ok){
                     const json = await response.json();
@@ -69,8 +71,8 @@ function PostByProfile() {
                             <Card.Img className='card-image' variant="top" src={posts.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
                             <Card.Body>
                                 <Card.Text>{posts.body}</Card.Text>
-                                {/* <ReactToPost id={posts.id}  reactions={post._count.reactions} className='Like-button'/>
-                                <CommentToPost id={posts.id} comments={post._count.comments} className='comment-button'/> */}
+                                <ReactToPost id={posts.id}  reactions={post._count.reactions} className='Like-button'/>
+                                {/* <CommentToPost id={posts.id} comments={post._count.comments} className='comment-button'/> */}
                                 
                             </Card.Body>
                         </Card>

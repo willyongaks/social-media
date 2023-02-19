@@ -1,24 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-import { token } from '../../../constants/url/BaseUrl';
+import AuthContext from '../../../context/AuthContext';
 import '../../../styles/profile/styles.scss';
 import PostByProfile from '../posts/PostByProfile';
 import ProfilesPost from './ProfilesPost';
 
 
-const options = {
-    headers: {
-        Authorization: `Bearer ${token}`,
-    },
-};
 
 
 function ProfileDetails() {
     const [profile, setProfile] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const auth = useContext(AuthContext)
 
     let navigate = useNavigate();
     let { name } = useParams();
@@ -35,7 +32,11 @@ function ProfileDetails() {
     useEffect(() => {
         async function fetchData() {
             try{
-                const response = await fetch(url, options);
+                const response = await fetch(url, {
+                    headers: {
+                        Authorization: `Bearer ${auth.accessToken}`,
+                    },
+                });
                 console.log(response)
 
                 if(response.ok){
@@ -51,7 +52,7 @@ function ProfileDetails() {
             }
         }
         fetchData();
-    }, [name, url])
+    }, [name, url, auth.accessToken])
 
 
 

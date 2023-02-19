@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
@@ -6,7 +6,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
+import { Base_Post_Url } from '../../../constants/url/BaseUrl';
+import AuthContext from '../../../context/AuthContext';
 
 
 
@@ -23,9 +24,10 @@ function UpdateBanner() {
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState(null);
   const [showSuccess, setShowSuccess] = useState(false);
+
   
   
-  const auth = localStorage.getItem('auth')
+  const auth = useContext(AuthContext)
   const name = JSON.parse(auth)?.name;
 
   const url = `${Base_Post_Url}profiles/${name}/media`
@@ -51,7 +53,7 @@ function UpdateBanner() {
         body: JSON.stringify(data),
         headers: {
           'content-type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${auth.accessToken}`
         }
       })
       if(response.ok){

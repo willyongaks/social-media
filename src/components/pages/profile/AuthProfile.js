@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-import { token } from '../../../constants/url/BaseUrl';
 
 
 
+const auth = localStorage.getItem('auth')
+const token = auth.accessTokent
 const profileUrl = Base_Post_Url + "profiles/WilliamOngaki";
 const options = {
     headers: {

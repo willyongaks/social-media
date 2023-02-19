@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import { token } from '../../../constants/url/BaseUrl';
 import * as yup from 'yup';
@@ -8,6 +8,7 @@ import { CiChat2 } from "react-icons/ci";
 import '../../../App.css';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
+import AuthContext from '../../../context/AuthContext'
 
 
 const url = Base_Post_Url + 'posts'
@@ -20,6 +21,7 @@ function CommentToPost({id}) {
     const [isOpen, setIsOpen] = useState(false);
     const [post, setPost] = useState("");
 
+    const auth = useContext(AuthContext)
 
     const {register,handleSubmit,formState: { errors },} = useForm({
         resolver: yupResolver( schema ),
@@ -44,7 +46,7 @@ function CommentToPost({id}) {
                 body: JSON.stringify({body: post}),
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
+                    'Authorization': `Bearer ${auth.accessToken}`
                 }
             })
             if(response.ok){

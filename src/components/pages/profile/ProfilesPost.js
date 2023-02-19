@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
+import React, { useContext, useEffect, useState } from 'react';
+import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import Card from 'react-bootstrap/Card';
 import DeletePost from '../posts/DeletePost';
 import UpdatePost from '../posts/UpdatePost';
+import AuthContext from '../../../context/AuthContext';
 
 
 
@@ -10,6 +11,8 @@ function ProfilesPost({profName}) {
     const[post, setPost] = useState([]);
     const[loading, setLoading] = useState(true);
     const[error, setError] = useState(null);
+
+    const auth =useContext(AuthContext)
     
 
     const url = `${Base_Post_Url}profiles/${profName}/posts`
@@ -19,7 +22,7 @@ function ProfilesPost({profName}) {
             try{
                 const response = await fetch(url, {
                     headers: {
-                        'Authorization': `Bearer ${token}`
+                        'Authorization': `Bearer ${auth.accessToken}`
                     }
                 });
                 if(response.ok){
@@ -34,7 +37,7 @@ function ProfilesPost({profName}) {
             }
         }
         fetchPost()
-    },[url])
+    },[url, auth.accessToken])
 
     if(loading){
         return <div>Loading...</div>
