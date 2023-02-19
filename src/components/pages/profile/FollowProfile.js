@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-import AuthContext from "../../../context/AuthContext";
+import AuthContext from '../../../context/AuthContext';
+
 
 function FollowProfile({ name, followers }) {
   const [following, setFollowing] = useState(false);
@@ -9,7 +10,7 @@ function FollowProfile({ name, followers }) {
   const url = Base_Post_Url + 'profiles';
 
   const auth = useContext(AuthContext)
-  const token = JSON.parse(auth).accessToken;
+ 
 
   useEffect(() => {
     const nameInFollowArray = followers.some((follower) => follower.name === auth.name);
@@ -22,7 +23,7 @@ function FollowProfile({ name, followers }) {
       const follow = await fetch(`${url}/${name}/follow`, {
         method: 'PUT',
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${auth.accessToken}`,
         },
       });
       if (!follow.ok) {
@@ -34,7 +35,7 @@ function FollowProfile({ name, followers }) {
       const unFollow = await fetch(`${url}/${name}/unfollow`, {
         method: 'PUT',
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${auth.accessToken}`,
         },
       });
       if (!unFollow.ok) {
@@ -53,7 +54,7 @@ function FollowProfile({ name, followers }) {
       try {
         const response = await fetch(`${url}/${name}`, {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${auth.accessToken}`,
           },
         });
         if (!response.ok) {
@@ -71,7 +72,7 @@ function FollowProfile({ name, followers }) {
       }
     };
     fetchProfile();
-  }, [url, name,token]);
+  }, [url, name,auth.accessToken]);
 
   if (loading) {
     return <p>Loading...</p>;
