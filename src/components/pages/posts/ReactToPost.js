@@ -6,9 +6,9 @@ import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-function ReactToPost({ id }) {
+function ReactToPost({ id, reactions }) {
   const [isReact, setIsReact] = useState(false);
-  const [count, setCount] = useState(0);
+ 
 
   const auth = localStorage.getItem('auth')
   const token = JSON.parse(auth).accessToken;
@@ -27,7 +27,6 @@ function ReactToPost({ id }) {
         const results = await response.json();
         if (results.id) {
           setIsReact(true);
-          setCount(results._count.reactions);
           
         }console.log(results)
       } else {
@@ -52,10 +51,10 @@ function ReactToPost({ id }) {
           </>
         ) : (
           <>
-            React <Badge bg="secondary">{count}</Badge>
+            React <Badge bg="secondary">{reactions}</Badge>
           </>
         )}
-        <span className="visually-hidden">{count}</span>
+        <span className="visually-hidden">{reactions}</span>
       </Button>
     </>
   );
