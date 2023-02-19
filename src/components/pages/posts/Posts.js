@@ -5,6 +5,9 @@ import CommentToPost from './CommentToPost';
 import Card from 'react-bootstrap/Card';
 import '../../../styles/postStyles/styles.scss';
 import { Link } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { CiFaceSmile } from "react-icons/ci";
 
 
 
@@ -84,13 +87,20 @@ function Posts() {
                 </div>
                 <Card.Text className='card-text'>{post.body}</Card.Text>
                   <div className='comment-card-button'>
-                    <ReactToPost id={post.id}  reactions={post._count.reactions} className='Like-button'/>
+                    <ReactToPost id={post.id}  reactions={post._count.reactions} />
                     <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/>
                   </div>
-                      </Card.Body>
-                      </Card>
+              </Card.Body>
+              <div className='Comment-text-area'>
+                <InputGroup>
+                  <InputGroup.Text><CiFaceSmile /></InputGroup.Text>
+                  <Form.Control as="textarea" aria-label="With textarea" />
+                </InputGroup>
+              </div>
+            </Card>
+            
                       
-                    </div>
+                </div>
                  
                     
                     

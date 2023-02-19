@@ -38,6 +38,7 @@
     border: none;
     border-radius: 30px;
     width: 18rem;
+    height: auto;
     padding: 0;
     background-color: var(--White-color);
   }
@@ -118,4 +119,15 @@
       color: black;
     }
   }
+}
+
+
+button.react-button{
+  background: none;
+  border: none;
+  padding: 10px 5px;
+}
+
+.Comment-text-area{
+  display: none;
 }

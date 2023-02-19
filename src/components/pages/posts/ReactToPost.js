@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-import '../../../App.css';
-import Badge from 'react-bootstrap/Badge';
-import Button from 'react-bootstrap/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import '../../../styles/postStyles/styles.scss';
+import { HiOutlineThumbUp } from "react-icons/hi";
 
 function ReactToPost({ id, reactions }) {
   const [isReact, setIsReact] = useState(false);
@@ -40,22 +37,14 @@ function ReactToPost({ id, reactions }) {
 
   return (
     <>
-      <Button
-        variant={isReact ? "success" : "primary"}
+      <button
         onClick={onSubmit}
         disabled={isReact}
+        className='react-button'
       >
-        {isReact ? (
-          <>
-            <FontAwesomeIcon icon={faCheck} /> Reacted
-          </>
-        ) : (
-          <>
-            React <Badge bg="secondary">{reactions}</Badge>
-          </>
-        )}
-        <span className="visually-hidden">{reactions}</span>
-      </Button>
+        <HiOutlineThumbUp />
+        Like
+      </button>
     </>
   );
 }
