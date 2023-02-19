@@ -1,7 +1,10 @@
 :root{
+  --small-font: 12px;
   --heading-font-size: 28px;
   --title-font-size: 17px;
    --font-family: 'Poppins', sans-serif;
+   --spacing-gap: 0.4rem;
+  --black-a08: rgba(0,0,0,0.08);
 
   // color
   --main-color: #000000;
@@ -82,9 +85,26 @@
       border-radius: .5em;
     }
   }
-
-  .card-button{
+  .card-count-container{
     display: flex;
+    justify-content: space-between;
+    margin: 0 1.6rem;
+    overflow: hidden;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--black-a08);
+    font-size: var(--small-font);
+  }
+  .card-count-item{
+    display: flex;
+    align-items: center;
+  }
+
+  .comment-card-button{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: inherit;
+    padding: 0.4rem 1.2rem;
+    column-gap: var(--spacing-gap);
   }
 
   .Like-button, .comment-button {

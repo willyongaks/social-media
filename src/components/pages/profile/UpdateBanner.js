@@ -28,7 +28,7 @@ function UpdateBanner() {
   
   
   const auth = useContext(AuthContext)
-  const name = JSON.parse(auth)?.name;
+  const name = (auth)?.name;
 
   const url = `${Base_Post_Url}profiles/${name}/media`
  

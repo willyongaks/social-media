@@ -3,14 +3,18 @@ import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 
 
 
-const auth = localStorage.getItem('auth')
-const token = auth.accessTokent
-const profileUrl = Base_Post_Url + "profiles/WilliamOngaki";
+const auth = JSON.parse(localStorage.getItem('auth'))
+const token = (auth).accessToken
+const name = (auth).name
+const profileUrl = `${Base_Post_Url}profiles/${name}`;
 const options = {
     headers: {
         Authorization: `Bearer ${token}`,
+        
     },
 };
+
+console.log(token)
 
  export const fetchData = async (setAuthProfile, setLoading,setError) => {
       try {

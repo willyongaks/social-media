@@ -18,7 +18,7 @@ function ProfileDash() {
   useEffect(() => {
     fetchData(setAuthProfile,setLoading,setError)
     
-  }, [])
+  }, [setAuthProfile,setLoading,setError])
   console.log(authProfile)
 
   if(loading){

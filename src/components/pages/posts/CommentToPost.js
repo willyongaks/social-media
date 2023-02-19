@@ -1,6 +1,5 @@
 import React, {useContext, useState} from 'react'
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-import { token } from '../../../constants/url/BaseUrl';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
@@ -22,6 +21,7 @@ function CommentToPost({id}) {
     const [post, setPost] = useState("");
 
     const auth = useContext(AuthContext)
+
 
     const {register,handleSubmit,formState: { errors },} = useForm({
         resolver: yupResolver( schema ),
@@ -66,27 +66,7 @@ function CommentToPost({id}) {
 
   return (
     <div>
-        <button onClick={handleClick} type="button" className="comment-button">
-            <CiChat2 /> 
-        </button>
-        {isOpen && (
-            <>
-            <FloatingLabel controlId="floatingTextarea2" label="Comment">
-                <Form.Control
-                    onChange={handleChannge} 
-                    as="textarea"
-                    placeholder="Comment"
-                    className=''
-                    {...register('Comment')}
-                        
-                />
-                {errors.Comment && <div className="text-danger">{errors.Comment.message}</div>}
-            </FloatingLabel>
-            <button onClick={(e) => handleSubmit(e, onSubmit)}>Post</button>
-             
-            </>
-           
-        )}
+       
     </div>
   )
 }

@@ -77,13 +77,18 @@ function Posts() {
                 <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
               </Link>
               <Card.Body>
+                <div className='card-count-container'>
+                  <span className='card-count-item'> 👍{post._count.reactions}</span>
+                  <span className='card-count-item'>{post._count.comments} comments</span>
+
+                </div>
                 <Card.Text className='card-text'>{post.body}</Card.Text>
-                  <div className='card-button'>
+                  <div className='comment-card-button'>
                     <ReactToPost id={post.id}  reactions={post._count.reactions} className='Like-button'/>
                     <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/>
                   </div>
-                            </Card.Body>
-                        </Card>
+                      </Card.Body>
+                      </Card>
                       
                     </div>
                  
