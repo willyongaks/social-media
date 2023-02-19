@@ -44,7 +44,7 @@ function FollowProfile({ name, followers }) {
 		}
 	};
 
-	return <button onClick={handleFollow}>{following ? "Unfollow" : "Follow"}</button>;
+	return <button onClick={handleFollow}>{following ? "Unfollow" : "+ Follow"}</button>;
 }
 
 export default FollowProfile;
