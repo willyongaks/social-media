@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
-import { CiHeart } from 'react-icons/ci';
+import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import '../../../App.css';
+import Badge from 'react-bootstrap/Badge';
+import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
-function ReactToPost({ id, symbol }) {
+function ReactToPost({ id }) {
   const [isReact, setIsReact] = useState(false);
-  const [postId, setPostId] = useState(null);
+  const [count, setCount] = useState(0);
 
-  const urlForReactingToPost = `${Base_Post_Url}posts/${id}/react/❤️`;
+  const auth = localStorage.getItem('auth')
+  const token = JSON.parse(auth).accessToken;
+
+  const url = `${Base_Post_Url}posts/${id}/react/👍`;
 
   async function onSubmit() {
     try {
-      const response = await fetch(urlForReactingToPost, {
+      const response = await fetch(url, {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -20,9 +26,10 @@ function ReactToPost({ id, symbol }) {
       if (response.ok) {
         const results = await response.json();
         if (results.id) {
-          setPostId(results.id);
           setIsReact(true);
-        }
+          setCount(results._count.reactions);
+          
+        }console.log(results)
       } else {
         throw new Error(`${response.status} ${response.statusText}`);
       }
@@ -34,10 +41,22 @@ function ReactToPost({ id, symbol }) {
 
   return (
     <>
-      {postId && <p className="post-id">Post ID: {postId}</p>}
-      <button onClick={onSubmit} className="Like-button">
-        {isReact ? symbol : symbol} <CiHeart />
-      </button>
+      <Button
+        variant={isReact ? "success" : "primary"}
+        onClick={onSubmit}
+        disabled={isReact}
+      >
+        {isReact ? (
+          <>
+            <FontAwesomeIcon icon={faCheck} /> Reacted
+          </>
+        ) : (
+          <>
+            React <Badge bg="secondary">{count}</Badge>
+          </>
+        )}
+        <span className="visually-hidden">{count}</span>
+      </Button>
     </>
   );
 }
