@@ -79,7 +79,7 @@ function Profiles() {
                                 </div>
                             </Link>
                             <div className='profile-button'>
-                                <FollowProfile name={profile.name} isFollowing={false} />
+                                <FollowProfile name={profile.name} followers={profile.followers} />
                             </div>
                         </div>
                    </div>

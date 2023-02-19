@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
+import AuthContext from "../../../context/AuthContext";
 
-function FollowProfile({ name }) {
+function FollowProfile({ name, followers }) {
   const [following, setFollowing] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const url = Base_Post_Url + 'profiles';
 
-  const auth = localStorage.getItem('auth')
+  const auth = useContext(AuthContext)
   const token = JSON.parse(auth).accessToken;
+
+  useEffect(() => {
+    const nameInFollowArray = followers.some((follower) => follower.name === auth.name);
+    setFollowing(nameInFollowArray);
+  },[name,followers,setFollowing,auth.name])
 
   const handleFollow = async () => {
   try {
