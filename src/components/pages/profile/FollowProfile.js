@@ -5,7 +5,6 @@ import AuthContext from '../../../context/AuthContext';
 
 function FollowProfile({ name, followers }) {
   const [following, setFollowing] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   const url = Base_Post_Url + 'profiles';
 
@@ -48,35 +47,6 @@ function FollowProfile({ name, followers }) {
     console.log(error);
   }
 };
-
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const response = await fetch(`${url}/${name}`, {
-          headers: {
-            Authorization: `Bearer ${auth.accessToken}`,
-          },
-        });
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        const data = await response.json();
-        if (data.profile) {
-            const storedFollowing = localStorage.getItem(`following_${name}`);
-            setFollowing(storedFollowing === 'true');
-        }
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-        setLoading(false);
-      }
-    };
-    fetchProfile();
-  }, [url, name,auth.accessToken]);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
 
   return (
     <>

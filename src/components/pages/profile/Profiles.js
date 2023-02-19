@@ -4,7 +4,7 @@ import '../../../styles/profile/styles.scss'
 import { Link } from 'react-router-dom';
 import FollowProfile from './FollowProfile';
 
-const url = Base_Post_Url + "profiles";
+const url = Base_Post_Url + "profiles?_followers=true";
 
 
 
