@@ -28,8 +28,8 @@ A registered user may create a Post * DONE -->
 <!-- A registered user may react to any Post with an emoji
 A registered user may follow and unfollow another Profile -->
 
-FINISHED 13 OF 14 
-REMAINING 1
+FINISHED 14 OF 14 
+REMAINING 0
 
 
 Technical Restrictions

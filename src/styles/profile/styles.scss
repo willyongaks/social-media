@@ -4,15 +4,19 @@
 }
 .profile-section{
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 .profile-card-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
     text-align: start;
+    gap: 1em;
     padding: 10px;
     border: 1px solid;
-    margin: 1em;
+    margin-bottom: 1em;
+    width: 100%;
 }
 .profile-card-media img{
     width: 50px;
@@ -26,6 +30,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+
+    // @media screen and (max-width: 864px) {
+    //     display: block;
+    //     justify-content: center;
+    //     gap: 1em;
+    // }
 }
 .profile-card-left{
     display: flex;
@@ -33,6 +44,11 @@
     gap: 1em;
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
+
+    @media screen and (max-width: 864px) {
+        display: block;
+        
+    }
 }
 
 
