@@ -91,7 +91,7 @@ function Posts() {
                     <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/>
                   </div>
               </Card.Body>
-              <div className='Comment-text-area'>
+              <div className='commentTextAreaRef'>
                 <InputGroup>
                   <InputGroup.Text><CiFaceSmile /></InputGroup.Text>
                   <Form.Control as="textarea" aria-label="With textarea" />

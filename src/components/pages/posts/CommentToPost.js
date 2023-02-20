@@ -1,94 +1,81 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import '../../../App.css';
-import AuthContext from '../../../context/AuthContext';
 import { TfiCommentAlt } from 'react-icons/tfi';
 
-const schema = yup.object().shape({
-  Comment: yup.string().required(),
-});
-
 function CommentToPost({ id }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [post, setPost] = useState('');
-
-  const auth = useContext(AuthContext);
-  const url = `${Base_Post_Url}${id}/comment`;
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
+  const [showCommentBox, setShowCommentBox] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(yup.object().shape({
+      body: yup.string().required('Comment is required'),
+    })),
   });
 
-  function CommentButton() {
-    const [showCommentBox, setShowCommentBox] = useState(false);
+  const auth = localStorage.getItem('auth');
+  const token = JSON.parse(auth).accessToken;
+  const url = `${Base_Post_Url}posts/${id}/comment`;
 
-    const handleClick = () => {
-      setShowCommentBox(!showCommentBox);
-    };
-    function handleChannge(event){
-        setPost(event.target.value)
-    }
+  const handleToggleCommentBox = () => {
+    setShowCommentBox(!showCommentBox);
+  };
 
-    const onSubmit = async (e) => {
-      e.preventDefault();
 
-      console.log('Post submitted!');
+  const handleCommentSubmit = async (data) => {
+    setSubmitting(true);
 
-      try {
-        const response = await fetch(url, {
-          method: 'POST',
-          body: JSON.stringify({ body: post }),
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${auth.accessToken}`,
-          },
-        });
-        if (response.ok) {
-          setPost(''); // clears the textarea
-          setIsOpen(false); // closes the form
-          const results = await response.json();
-          console.log('Comment posted successfully', results);
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({ body: data.body }),
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+      });
 
-          console.log(results);
-        }
-      } catch (error) {
-        console.log(error);
+      const jsonData = await response.json();
+      if (!response.ok) {
+        throw new Error(jsonData.message);
       }
-    };
 
-    return (
-      <div className="comment-box-container">
-        <button onClick={handleClick} type="button" className="comment-button">
-          <TfiCommentAlt />
-        </button>
-        {showCommentBox && (
-          <form onSubmit={handleSubmit(onSubmit)}>
+      setShowSuccess(true);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="comment-box-container">
+      <button type="button" className="comment-button" onClick={handleToggleCommentBox}>
+        <TfiCommentAlt />
+      </button>
+      {showCommentBox && (
+        <form onSubmit={handleSubmit(handleCommentSubmit)}>
+          {showSuccess && <div className="alert alert-success">Comment created successfully!</div>}
+          <fieldset disabled={submitting}>
             <div className="comment-box">
               <textarea
                 placeholder="Type your comment here..."
-                {...register('Comment')}
-                onChange={handleChannge}
-                value={post}
+                {...register('body')}
+                value={errors.body ? '' : register('body').value} // Clear the textarea if there's an error
               />
-              {errors.Comment && (
-                <span className="error-message">{errors.Comment.message}</span>
+              {errors.body && (
+                <span className="error-message">{errors.body.message}</span> // Use 'body' instead of 'comment'
               )}
-              <button type="submit">Post</button>
+              <button type="submit" disabled={submitting}>Post</button>
             </div>
-          </form>
-        )}
-      </div>
-    );
-  }
-
-  return <CommentButton />;
+          </fieldset>
+        </form>
+      )}
+    </div>
+  );
 }
 
 export default CommentToPost;
