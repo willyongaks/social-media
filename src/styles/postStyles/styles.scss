@@ -41,6 +41,8 @@
     height: auto;
     padding: 0;
     background-color: var(--White-color);
+
+
   }
 
   .card-header {
@@ -76,6 +78,7 @@
 
   .card-container {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
 

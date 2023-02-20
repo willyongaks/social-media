@@ -71,7 +71,7 @@ function Posts() {
         {results.length > 0 ? (
           results.map((post) => {
         return(
-          <div key={post.id}>
+          <div key={post.id} className='post-card' >
             <Card className='card-body m-3'>
               <Card.Header className='card-header'>
                 <Card.Title className='card-title'>{post.title}</Card.Title>
