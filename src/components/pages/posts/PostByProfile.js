@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import ReactToPost from './ReactToPost';
 import CommentToPost from './CommentToPost';
 import Card from 'react-bootstrap/Card';
 import '../../../styles/postStyles/styles.scss';
-import AuthContext from '../../../context/AuthContext';
 
 
 
@@ -47,7 +45,7 @@ function PostByProfile() {
             }
         }
         fetchPosts();
-    },[name, url])
+    },[name, url, token])
 
 
 
