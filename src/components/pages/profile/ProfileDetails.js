@@ -104,28 +104,13 @@ function ProfileDetails() {
                 </div>
               </div>
             </div>
-            <div>
+            <div className='profile-post-container'>
                  <ProfilesPost profName={profile.name}/>
             </div>
           </div>
         </Col> 
       </Row>
     </Container> 
-        {/* <div key={profile.name} className='profile-details-container'>
-            <div className='profile-details-banner'>
-                <img src={profile.banner || 'https://images.unsplash.com/photo-1497802176320-541c8e8de98d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80'} alt={profile.banner} />
-            </div>
-            <div className='profile-details-avatar'>
-                <img src={profile.avatar || 'https://images.unsplash.com/photo-1628260412297-a3377e45006f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'} alt={profile.banner} />
-            </div>
-            <h6>{profile.name}</h6>
-            <div className='profile-posts'>
-                <PostByProfile />
-            </div>
-        </div>
-        <div>
-            <ProfilesPost profName={profile.name}/>
-        </div> */}
         </>
     )
 }

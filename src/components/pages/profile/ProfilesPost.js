@@ -3,6 +3,7 @@ import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import Card from 'react-bootstrap/Card';
 import DeletePost from '../posts/DeletePost';
 import UpdatePost from '../posts/UpdatePost';
+import '../../../styles/profile/styles.scss';
 
 
 
@@ -54,7 +55,7 @@ function ProfilesPost({profName}) {
     <div className='card-container'>
       {post.length > 0 ? (
         post.map((post) => (
-          <div key={post.id}>
+          <div key={post.id} className='post-card'>
             <Card className='card-body m-3'>
               <Card.Header className='card-header'>
                 <Card.Title className='card-title'>{post.title}</Card.Title>
