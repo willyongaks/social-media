@@ -2,6 +2,10 @@
     text-decoration: none;
     
 }
+
+.dashboard-container{
+    display: flex;
+}
 .profile-section{
     text-align: center;
     display: flex;
@@ -88,6 +92,14 @@
     }
 }
 
-
+.card-count-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1.6rem;
+    overflow: hidden;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--black-a08);
+    font-size: var(--small-font);
+}
 
 

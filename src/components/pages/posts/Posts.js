@@ -19,8 +19,6 @@ function Posts() {
   const [results, setResults] =useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const [displayedPosts, setDisplayedPosts] = useState(results);
-
 
   const auth = localStorage.getItem('auth')
   const token = JSON.parse(auth).accessToken;
@@ -41,7 +39,6 @@ function Posts() {
       }
       const data = await response.json();
       setResults(data);
-      // setDisplayedPosts(data.slice(0, 5));
       setLoading(false);
       
       console.log(data)
@@ -54,10 +51,7 @@ function Posts() {
   fetchData()
 }, [token])
 
-  // const handleShowMore = () => {
-  //       const nexPosts = results.slice(displayedPosts.length,displayedPosts.length + 5);
-  //       setDisplayedPosts(displayedPosts.concat(nexPosts))
-  //   }
+
 
   if(loading){
     return <p>loading.....</p>
@@ -117,9 +111,6 @@ function Posts() {
             ) : (
                 <p>No posts found</p>
             )}
-            {/* {displayedPosts.length < results.length && (
-            <button onClick={handleShowMore} className=''>Show More</button>
-            )} */}
       </div> 
     </>
 
