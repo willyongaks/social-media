@@ -28,6 +28,7 @@
 }
 
 body{
+  background-color: #F3F2EF;
     font-family: var(--font-family);
 }
 nav{
@@ -35,11 +36,23 @@ nav{
   position: sticky;
   top: 0;
   z-index: 1040;
+  
+}
+
+.navbar{
+  background-color: var(--White-color);
+}
+.nav-link{
+  color: var(--Black-color);
+}
+.navbar-brand{
+  color: #000000;
+
 }
 
 
 
-/* .right-column{
+.right-column{
   position: sticky;
   order: 2;
   position: -webkit-sticky;
@@ -49,5 +62,6 @@ nav{
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   font-size: .875rem;
-   overflow-y: auto;
-} */
+  overflow-y: auto;
+  /* background-color: var(--White-color); */
+}

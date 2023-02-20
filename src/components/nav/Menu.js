@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import '../../App.css';
 
 function Menu() {
     const [auth, setAuth] = useContext(AuthContext);
@@ -22,7 +23,7 @@ function Menu() {
 		{auth ? (
                     <>
                         {['md'].map((expand) => (
-                        <Navbar key={expand} bg="dark" variant="dark" expand={expand} className="mb-3">
+                        <Navbar key={expand}  variant="dark" expand={expand} className="mb-3 nav-bar">
                             <Container fluid>
                                 <Navbar.Brand to="/">Soshols</Navbar.Brand>
                                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
