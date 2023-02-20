@@ -1,5 +1,4 @@
 import React from 'react';
-// import '../../../App.css'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Posts from '../posts/Posts';

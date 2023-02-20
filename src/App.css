@@ -39,7 +39,7 @@ nav{
 
 
 
-.right-column{
+/* .right-column{
   position: sticky;
   order: 2;
   position: -webkit-sticky;
@@ -50,4 +50,4 @@ nav{
   padding-bottom: 1.5rem;
   font-size: .875rem;
    overflow-y: auto;
-}
+} */

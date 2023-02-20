@@ -19,38 +19,45 @@ function Posts() {
   const [results, setResults] =useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  // const [displayedPosts, setDisplayedPosts] = useState(results);
 
 
   const auth = localStorage.getItem('auth')
   const token = JSON.parse(auth).accessToken;
+  
 
 
   
   useEffect(() => {
-    const fetchData = async () => {
-      try{
-        const response = await fetch(url, {
-          headers: {
-            'Authorization': `Bearer ${token}`
-          }
-        });
-        if(!response.ok){
-          throw new Error(response.statusText);
+  const fetchData = async () => {
+    try{
+      const response = await fetch(url, {
+        headers: {
+          'Authorization': `Bearer ${token}`
         }
-        const data = await response.json();
-        setResults(data);
-        setLoading(false);
-        console.log(data)
-      }catch(error) {
-        setError(error);
-        setLoading(false);
+      });
+      if(!response.ok){
+        throw new Error(response.statusText);
       }
+      const data = await response.json();
+      setResults(data);
+      // setDisplayedPosts(data.slice(0, 5));
+      setLoading(false);
       
+      console.log(data)
+    } catch(error) {
+      setError(error);
+      setLoading(false);
     }
+  }
 
-    fetchData()
-  }, [token])
+  fetchData()
+}, [token])
+
+  // const handleShowMore = () => {
+  //       const nexPosts = results.slice(displayedPosts.length,displayedPosts.length + 5);
+  //       setDisplayedPosts(displayedPosts.concat(nexPosts))
+  //   }
 
   if(loading){
     return <p>loading.....</p>
@@ -72,7 +79,7 @@ function Posts() {
           results.map((post) => {
         return(
           <div key={post.id} className='post-card' >
-            <Card className='card-body m-3'>
+            <Card className='card-body '>
               <Card.Header className='card-header'>
                 <Card.Title className='card-title'>{post.title}</Card.Title>
               </Card.Header>
@@ -110,6 +117,9 @@ function Posts() {
             ) : (
                 <p>No posts found</p>
             )}
+            {/* {displayedPosts.length < results.length && (
+            <button onClick={handleShowMore} className=''>Show More</button>
+            )} */}
       </div> 
     </>
 

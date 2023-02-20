@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-import AuthContext from '../../../context/AuthContext';
+// import AuthContext from '../../../context/AuthContext';
 import '../../../styles/profile/styles.scss';
 import PostByProfile from '../posts/PostByProfile';
 import ProfilesPost from './ProfilesPost';
@@ -15,7 +15,9 @@ function ProfileDetails() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const auth = useContext(AuthContext)
+
+    const authToken = localStorage.getItem('auth')
+    const token = JSON.parse(authToken).accessToken;
 
     let navigate = useNavigate();
     let { name } = useParams();
@@ -34,7 +36,7 @@ function ProfileDetails() {
             try{
                 const response = await fetch(url, {
                     headers: {
-                        Authorization: `Bearer ${auth.accessToken}`,
+                        Authorization: `Bearer ${token}`,
                     },
                 });
                 console.log(response)
@@ -52,7 +54,7 @@ function ProfileDetails() {
             }
         }
         fetchData();
-    }, [name, url, auth.accessToken])
+    }, [name, url, token])
 
 
 
