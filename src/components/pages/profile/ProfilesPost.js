@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import Card from 'react-bootstrap/Card';
-import DeletePost from '../posts/DeletePost';
-import UpdatePost from '../posts/UpdatePost';
 import '../../../styles/profile/styles.scss';
 import ReactToPost from '../posts/ReactToPost';
 import CommentToPost from '../posts/CommentToPost';
@@ -41,7 +39,7 @@ function ProfilesPost({profName}) {
             }
         }
         fetchPost()
-    },[url, auth.accessToken])
+    },[url, token])
 
     if(loading){
         return <div>Loading...</div>

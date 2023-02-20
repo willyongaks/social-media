@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Base_Post_Url, token } from '../../../constants/url/BaseUrl';
+import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import AuthContext from '../../../context/AuthContext';
 
 function DeletePost({ postId }) {

@@ -31,7 +31,7 @@ function Reg(props) {
         resolver: yupResolver( schema ),
     });
 
-    const [auth, setAuth] = useContext(AuthContext);
+    const [setAuth] = useContext(AuthContext);
 
 
     const [submitting, setSubmitting] = useState(false);
