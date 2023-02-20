@@ -30,7 +30,7 @@ function ProfileDash() {
 
   return (
     <section className='dashboard-container'>
-        <Container>
+      <Container>
       <Row>
         <Col sm={10}>
           <div className='dbh1'>

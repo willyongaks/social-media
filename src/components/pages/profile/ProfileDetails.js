@@ -2,10 +2,11 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-// import AuthContext from '../../../context/AuthContext';
 import '../../../styles/profile/styles.scss';
-import PostByProfile from '../posts/PostByProfile';
 import ProfilesPost from './ProfilesPost';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 
 
@@ -70,7 +71,47 @@ function ProfileDetails() {
     }
     return (
         <>
-        <div key={profile.name} className='profile-details-container'>
+        <Container>
+      <Row>
+        <Col sm={10}>
+          <div className='dbh1'>
+            <div className='dashboard-banner'>
+              <img src={profile.banner || 'https://images.unsplash.com/photo-1497802176320-541c8e8de98d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80'} alt={profile.banner} />
+            </div>
+            <div className='dbh-prof-details'>
+              <div>
+                <button className='dashboard-avatar'>
+                  <img src={profile.avatar || 'https://images.unsplash.com/photo-1628260412297-a3377e45006f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80'} alt={profile.avatar} />
+                </button>
+              </div>
+              <div className='dashboard-details'>
+                <div className='dash-count'>
+                  <div className='posts'>
+                    <p>Post 
+                      <span>{profile._count.posts}</span>
+                    </p>
+                  </div>
+                  <div className='Following'>
+                    <p>Following 
+                      <span>{profile._count.following}</span>
+                    </p>
+                  </div>
+                  <div className='Followers'>
+                    <p>Followers 
+                      <span>{profile._count.followers}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+                 <ProfilesPost profName={profile.name}/>
+            </div>
+          </div>
+        </Col> 
+      </Row>
+    </Container> 
+        {/* <div key={profile.name} className='profile-details-container'>
             <div className='profile-details-banner'>
                 <img src={profile.banner || 'https://images.unsplash.com/photo-1497802176320-541c8e8de98d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1015&q=80'} alt={profile.banner} />
             </div>
@@ -84,7 +125,7 @@ function ProfileDetails() {
         </div>
         <div>
             <ProfilesPost profName={profile.name}/>
-        </div>
+        </div> */}
         </>
     )
 }

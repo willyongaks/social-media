@@ -2,9 +2,8 @@ import React, { useContext } from 'react';
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-import { token } from '../../../constants/url/BaseUrl';
 import ReactToPost from './ReactToPost';
-// import CommentToPost from './CommentToPost';
+import CommentToPost from './CommentToPost';
 import Card from 'react-bootstrap/Card';
 import '../../../styles/postStyles/styles.scss';
 import AuthContext from '../../../context/AuthContext';
@@ -20,8 +19,11 @@ function PostByProfile() {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null);
 
-    const { name } = useParams();
-    const auth = useContext(AuthContext)
+   
+    const auth = localStorage.getItem('auth')
+    const name = JSON.parse(auth)?.name;
+    const token = JSON.parse(auth).accessToken;
+    console.log(auth)
     
     const url = `${Base_Post_Url}profiles/${name}/posts`;
 
@@ -30,7 +32,7 @@ function PostByProfile() {
             try{
                 const response = await fetch(url, {
                     headers: {
-                        Authorization: `Bearer ${auth.accessToken}`,
+                        Authorization: `Bearer ${token}`,
                     },
                 });
 
@@ -72,7 +74,7 @@ function PostByProfile() {
                             <Card.Body>
                                 <Card.Text>{posts.body}</Card.Text>
                                 <ReactToPost id={posts.id}  reactions={post._count.reactions} className='Like-button'/>
-                                {/* <CommentToPost id={posts.id} comments={post._count.comments} className='comment-button'/> */}
+                                <CommentToPost id={posts.id} comments={post._count.comments} className='comment-button'/>
                                 
                             </Card.Body>
                         </Card>
