@@ -5,9 +5,6 @@ import CommentToPost from './CommentToPost';
 import Card from 'react-bootstrap/Card';
 import '../../../styles/postStyles/styles.scss';
 import { Link } from 'react-router-dom';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import { CiFaceSmile } from "react-icons/ci";
 
 
 
@@ -19,7 +16,7 @@ function Posts() {
   const [results, setResults] =useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [limit, setLimit] = useState(30);
+  const [limit, setLimit] = useState(20);
 
   const auth = localStorage.getItem('auth')
   const token = JSON.parse(auth).accessToken;

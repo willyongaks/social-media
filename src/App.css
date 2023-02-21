@@ -1,5 +1,6 @@
 :root {
   --Home-background-image: #F9FBFC;
+  --main-color: #0077B7;
   --White-color: #FFFFFF;
   --Black-color: #1B1D27;
   --Red-color: #DE4453;
@@ -9,23 +10,6 @@
 
 }
 
-.btn-primary {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: #0077B7;
-    --bs-btn-border-color: black;
-    --bs-btn-hover-color: #000000;
-    --bs-btn-hover-bg: none;
-    --bs-btn-hover-border-color: none;
-    --bs-btn-focus-shadow-rgb: 49,132,253;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #0a58ca;
-    --bs-btn-active-border-color: #0a53be;
-    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-    --bs-btn-disabled-color: #fff;
-    --bs-btn-disabled-bg: #0d6efd;
-    --bs-btn-disabled-border-color: #0d6efd;
-
-}
 
 body{
   background-color: #F3F2EF;
@@ -37,6 +21,25 @@ nav{
   top: 0;
   z-index: 1040;
   
+}
+.nav-link.active{
+  color: var(--main-color);
+}
+
+.nav-link:hover{
+  color: var(--main-color);
+  font-weight: 500;
+}
+.logout-Btn{
+  background-color: var(--main-color);
+  color: var(--White-color);
+  border: none;
+
+}
+
+.logout-Btn:hover{
+  background-color: var(--White-color);
+  color: var(--main-color);
 }
 
 
