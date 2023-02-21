@@ -30,13 +30,16 @@
 
 .Post-container {
   min-height: 100vh;
-  background-color: var(--Home-background-image);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1em;
+  // background-color: var(--Home-background-image);
 
   
 
   .card-body {
     border: none;
-    border-radius: 30px;
     width: 18rem;
     height: auto;
     padding: 0;
@@ -47,11 +50,10 @@
   }
 
   .card-header {
-    border-bottom: none;
     background-color: transparent;
     display: flex;
     align-items: center;
-    gap: 1em;
+   
     text-decoration: none;
 
 
@@ -75,13 +77,12 @@
       font-size: 14px;
       font-family: var(--font-family);
       padding: .1em;
+      height: 50px;
     }
 
   .card-container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+    gap: 1em;
 
     .card-image {
       width: 100%;

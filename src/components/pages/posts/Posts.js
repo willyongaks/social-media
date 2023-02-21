@@ -19,6 +19,7 @@ function Posts() {
   const [results, setResults] =useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [limit, setLimit] = useState(30);
 
   const auth = localStorage.getItem('auth')
   const token = JSON.parse(auth).accessToken;
@@ -71,33 +72,29 @@ function Posts() {
       <div className='card-container'>
         {results.length > 0 ? (
           results.map((post) => {
+            const body = post.body.slice(0, limit);
+            const isLongText = post.body.length > limit;
         return(
           <div key={post.id} className='post-card' >
             <Card className='card-body '>
               <Card.Header className='card-header'>
                 <Card.Title className='card-title'>{post.title}</Card.Title>
-              </Card.Header>
+              </Card.Header>              
+              <Card.Body>
+                <Card.Text className="card-text">{body}{isLongText && <span>...<button onClick={() => setLimit(post.body.length)}>Show more</button></span>}</Card.Text>
+              </Card.Body>
               <Link to={`/post/${post.id}`} className='link' >
                 <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
               </Link>
-              <Card.Body>
-                <div className='card-count-container'>
+              <div className='card-count-container'>
                   <span className='card-count-item'> 👍{post._count.reactions}</span>
                   <span className='card-count-item'>{post._count.comments} comments</span>
 
                 </div>
-                <Card.Text className='card-text'>{post.body}</Card.Text>
-                  <div className='comment-card-button'>
+              <div className='comment-card-button'>
                     <ReactToPost id={post.id}  reactions={post._count.reactions} />
                     <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/>
                   </div>
-              </Card.Body>
-              <div className='commentTextAreaRef'>
-                <InputGroup>
-                  <InputGroup.Text><CiFaceSmile /></InputGroup.Text>
-                  <Form.Control as="textarea" aria-label="With textarea" />
-                </InputGroup>
-              </div>
             </Card>
             
                       
