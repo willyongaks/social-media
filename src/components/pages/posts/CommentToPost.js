@@ -54,7 +54,7 @@ function CommentToPost({ id }) {
   return (
     <div className="comment-box-container">
       <button type="button" className="comment-button" onClick={handleToggleCommentBox}>
-        <TfiCommentAlt />
+        <TfiCommentAlt /> comment
       </button>
       {showCommentBox && (
         <form onSubmit={handleSubmit(handleCommentSubmit)}>

@@ -40,7 +40,8 @@
 
   .card-body {
     border: none;
-    width: 18rem;
+    border-radius: 0;
+    width: 100%;
     height: auto;
     padding: 0;
     background-color: var(--White-color);
@@ -53,7 +54,7 @@
     background-color: transparent;
     display: flex;
     align-items: center;
-   
+   border: .5px ;
     text-decoration: none;
 
 
@@ -75,8 +76,9 @@
   .card-text{
       font-size: 14px;
       font-family: var(--font-family);
-      padding: .1em;
+      padding: 8px 16px;
       height: auto;
+      text-transform: capitalize;
     }
 
     .show-more-text{

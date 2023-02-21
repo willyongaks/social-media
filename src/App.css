@@ -22,6 +22,7 @@ nav{
   z-index: 1040;
   
 }
+
 .nav-link.active{
   color: var(--main-color);
 }
@@ -34,6 +35,7 @@ nav{
   background-color: var(--main-color);
   color: var(--White-color);
   border: none;
+  border-radius: 0;
 
 }
 
