@@ -4,24 +4,34 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: bisque;
+  background-image: linear-gradient(to bottom, #004696, #FFFFFF);
 }
 
 
 .form-btns{
   display:  flex;
+  flex-direction: column;
+  gap: 1em;
   justify-content: space-between;
 
 }
 .login-btn{
+  width: 100%;
   background-color: #0077B7;
-  border-radius: 47px;
+  border-radius: 50px;
   color: #000000;
 }
 .login-btn:hover{
   background-color: transparent;
   color: #000000;
   border: 1px solid #0077B7;
+}
+button.register-btn{
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  color: #000000;
+  text-decoration: underline;
 }
 .reg-form-btns{
   display: flex;

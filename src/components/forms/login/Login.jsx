@@ -11,7 +11,6 @@ import { RxEnvelopeClosed } from "react-icons/rx";
 import { CiLock } from "react-icons/ci";
 import { BaseUrl } from "../../../constants/url/BaseUrl";
 import AuthContext from '../../../context/AuthContext';
-// import { token } from '../../../constants/url/BaseUrl';
 import '../../../styles/loginStyles/styles.scss';
 
 
@@ -122,7 +121,7 @@ function Login(props) {
                         type="submit"
                         className='register-btn col-5'
                     >
-                        Create account
+                        No account? Create here
                     </Button>
                 </div>
             </fieldset>
