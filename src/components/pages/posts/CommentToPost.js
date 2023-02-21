@@ -3,7 +3,7 @@ import { Base_Post_Url } from '../../../constants/url/BaseUrl';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import '../../../App.css';
+import '../../../styles/postStyles/styles.scss';
 import { TfiCommentAlt } from 'react-icons/tfi';
 
 function CommentToPost({ id }) {

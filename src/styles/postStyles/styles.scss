@@ -41,7 +41,7 @@
   .card-body {
     border: none;
     border-radius: 0;
-    width: 100%;
+    width: 17.5rem;
     height: auto;
     padding: 0;
     background-color: var(--White-color);
@@ -54,7 +54,7 @@
     background-color: transparent;
     display: flex;
     align-items: center;
-   border: .5px ;
+    border: .5px ;
     text-decoration: none;
 
 
@@ -112,22 +112,29 @@
     align-items: center;
   }
 
-  .comment-card-button{
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: inherit;
-    padding: 0.4rem 1.2rem;
-    column-gap: var(--spacing-gap);
-  }
+ 
 
-  .Like-button, .comment-button {
+  .comment-card-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .comment-button{
     background-color: transparent;
     border: none;
     color: black;
-    font-size: 24px;
+    font-size: 12px;
+  }
+  
+
+  .react-button {
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: 12px;
 
     &:hover {
-      background-color: transparent;
+      background-color: #004696;
       color: black;
     }
   }
