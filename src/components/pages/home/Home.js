@@ -9,7 +9,7 @@ import CreatePost from '../posts/CreatePost';
 function Home() {
   return (
     <>
-      <Row >
+      <Row col-12>
         <Col className='Post-container'>
           <Posts />
         </Col>
