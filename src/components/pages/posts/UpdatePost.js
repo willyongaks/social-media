@@ -83,7 +83,7 @@ function UpdatePost({postId}) {
         
     <div className=''>
         <Button variant="primary" onClick={handleShow}>
-            Update post
+            Update
         </Button>
 
     <Modal show={show} onHide={handleClose}>
@@ -110,11 +110,6 @@ function UpdatePost({postId}) {
                         />
                         {errors.body && <div className="text-danger">{errors.body.message}</div>}
                     </FloatingLabel>
-
-                    {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Tags</Form.Label>
-                        <Form.Control type="text" placeholder="[tags]" {...register('tags')} />
-                    </Form.Group> */}
                     <Form.Label htmlFor="basic-url">Media</Form.Label>
                     <InputGroup className="mb-3">
                         <InputGroup.Text id="basic-addon3">
