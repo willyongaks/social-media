@@ -29,7 +29,7 @@
 
 body{
   background-color: #F3F2EF;
-    font-family: var(--font-family);
+  font-family: var(--font-family);
 }
 nav{
   position: -webkit-sticky;
@@ -39,16 +39,6 @@ nav{
   
 }
 
-.navbar{
-  background-color: var(--White-color);
-}
-.nav-link{
-  color: var(--Black-color);
-}
-.navbar-brand{
-  color: #000000;
-
-}
 
 
 
