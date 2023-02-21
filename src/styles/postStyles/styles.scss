@@ -34,13 +34,13 @@
   flex-direction: column;
   justify-content: center;
   margin: 1em;
-  // background-color: var(--Home-background-image);
+  position: relative;
 
   
 
   .card-body {
     border: none;
-    border-radius: 0;
+    border-radius: 9px;
     width: 17.5rem;
     height: auto;
     padding: 0;
@@ -92,10 +92,12 @@
     display: flex;
     gap: 1em;
 
+
     .card-image {
       width: 100%;
       height: 200px;
       object-fit: cover;
+      border-radius: 0;
     }
   }
   .card-count-container{
@@ -147,7 +149,5 @@ button.react-button{
   padding: 10px 5px;
 }
 
-.commentTextAreaRef{
-  display: none;
-}
+
 

@@ -23,6 +23,15 @@ function CommentToPost({ id }) {
   const handleToggleCommentBox = () => {
     setShowCommentBox(!showCommentBox);
   };
+  function increasePostCardHeight(event){
+     const postCard = event.target.closest('.post-card');
+
+     if (postCard) {
+    const currentHeight = postCard.clientHeight;
+    const newHeight = currentHeight + 50;
+    postCard.style.height = `${newHeight}px`;
+  }
+  }
 
 
   const handleCommentSubmit = async (data) => {
@@ -64,10 +73,11 @@ function CommentToPost({ id }) {
               <textarea
                 placeholder="Type your comment here..."
                 {...register('body')}
-                value={errors.body ? '' : register('body').value} // Clear the textarea if there's an error
+                value={errors.body ? '' : register('body').value} 
+                className='comment-text-area'
               />
               {errors.body && (
-                <span className="error-message">{errors.body.message}</span> // Use 'body' instead of 'comment'
+                <span className="error-message">{errors.body.message}</span>
               )}
               <button type="submit" disabled={submitting}>Post</button>
             </div>
