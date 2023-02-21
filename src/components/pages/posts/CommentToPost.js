@@ -23,15 +23,7 @@ function CommentToPost({ id }) {
   const handleToggleCommentBox = () => {
     setShowCommentBox(!showCommentBox);
   };
-  function increasePostCardHeight(event){
-     const postCard = event.target.closest('.post-card');
-
-     if (postCard) {
-    const currentHeight = postCard.clientHeight;
-    const newHeight = currentHeight + 50;
-    postCard.style.height = `${newHeight}px`;
-  }
-  }
+  
 
 
   const handleCommentSubmit = async (data) => {
