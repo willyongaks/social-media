@@ -67,3 +67,8 @@ nav{
   padding: 0;
   /* background-color: var(--White-color); */
 }
+ @media (max-width: 603px) {
+    .card-body {
+      width: 100%;
+    }
+  }
