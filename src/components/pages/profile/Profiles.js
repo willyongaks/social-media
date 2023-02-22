@@ -88,7 +88,7 @@ function Profiles() {
             }) 
         ): (<p> No profiles found</p> )} 
         {displayedProfiles.length < profiles.length && (
-            <button onClick={handleShowMore} className=''>Show More</button>
+            <button onClick={handleShowMore} className='profile-show-more-button'>Show More</button>
         )}
         
     </div>

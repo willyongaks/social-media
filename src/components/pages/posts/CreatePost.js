@@ -9,6 +9,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import AuthProfile from '../profile/AuthProfile';
+import '../../../styles/postStyles/styles.scss';
 
 
 
@@ -82,7 +83,11 @@ function CreatePost() {
         
         <div className=''>
             <AuthProfile />
-            <Button variant="primary" onClick={handleShow}>
+            <Button 
+                variant="primary" 
+                onClick={handleShow}
+                className='create-post-btn'
+                >
         Create post
       </Button>
 
@@ -110,11 +115,6 @@ function CreatePost() {
                         />
                         {errors.body && <div className="text-danger">{errors.body.message}</div>}
                     </FloatingLabel>
-
-                    {/* <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Tags</Form.Label>
-                        <Form.Control type="text" placeholder="[tags]" {...register('tags')} />
-                    </Form.Group> */}
                     <Form.Label htmlFor="basic-url">Media</Form.Label>
                     <InputGroup className="mb-3">
                         <InputGroup.Text id="basic-addon3">

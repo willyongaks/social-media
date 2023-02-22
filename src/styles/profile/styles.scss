@@ -1,3 +1,8 @@
+:root{
+    --main-color: #0077B7;
+    --white-color: #ffff;
+}
+
 .link{
     text-decoration: none;
     
@@ -10,6 +15,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    
 }
 .profile-card-container{
     display: flex;
@@ -18,9 +24,10 @@
     text-align: start;
     gap: 1em;
     padding: 10px;
-    border: 1px solid;
+    border: 1px solid rgba(128, 128, 128, 0.305);
     margin-bottom: 1em;
     width: 100%;
+    background-color: var(--white-color);
 }
 .profile-card-media img{
     width: 50px;
@@ -47,7 +54,17 @@
         
     }
 }
+.profile-button{
+    background-color: var(--main-color);
+    border: none;
+    padding: 3px 10px;
 
+
+    &:hover{
+        background-color: var(--white-color);
+        transition: .5s ease-in-out;
+    }
+}
 
 
 // PROFILE DETAILS STYLES
@@ -100,6 +117,18 @@
     padding: 0.8rem 0;
     border-bottom: 1px solid var(--black-a08);
     font-size: var(--small-font);
+}
+
+.profile-show-more-button{
+    padding: 15px;
+    background-color: var(--main-color);
+    color: #ffff;
+    border: none;
+
+    &:hover{
+        background-color: #ffff;
+        color: #000000;
+    }
 }
 
 

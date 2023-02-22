@@ -7,6 +7,7 @@ import ProfilesPost from './ProfilesPost';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import FollowProfile from './FollowProfile';
 
 
 
@@ -85,6 +86,10 @@ function ProfileDetails() {
                 </button>
               </div>
               <div className='dashboard-details'>
+                <div className='dash-name'>
+                  <p>{profile.name}</p>
+                  
+                </div>
                 <div className='dash-count'>
                   <div className='posts'>
                     <p>Post 

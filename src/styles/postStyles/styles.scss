@@ -7,13 +7,13 @@
   --black-a08: rgba(0,0,0,0.08);
 
   // color
-  --main-color: #000000;
+  --black-color: #000000;
 }
 
 
 .link{
   text-decoration: none;
-  color: var(--main-color);
+  color: var(--black-color);
   font-family: var(--font-family);
 
   &:hover{
@@ -54,7 +54,7 @@
     background-color: transparent;
     display: flex;
     align-items: center;
-    border: .5px ;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.167);
     text-decoration: none;
 
 
@@ -122,31 +122,48 @@
     justify-content: space-evenly;
   }
   .comment-button{
+    width: 100%;
     background-color: transparent;
     border: none;
     color: black;
     font-size: 12px;
+    padding: 10px 35px;
+
+    &:hover{
+      background-color: #9b9b9b22;
+      color: black;
+    }
   }
   
 
   .react-button {
-    background-color: transparent;
+    width: 100%;
     border: none;
     color: black;
     font-size: 12px;
+    padding: 10px 25px;
+    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
-      background-color: #004696;
+      background-color: #9b9b9b22;
       color: black;
     }
   }
 }
 
-
-button.react-button{
-  background: none;
+.create-post-btn{
   border: none;
-  padding: 10px 5px;
+  background-color: #0077B7;
+  font-size: 12px;
+
+  &:hover{
+    background-color: #ffff;
+    color: #000000;
+  }
 }
 
 

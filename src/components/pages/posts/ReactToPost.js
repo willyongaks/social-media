@@ -24,14 +24,13 @@ function ReactToPost({ id, reactions }) {
         const results = await response.json();
         if (results.id) {
           setIsReact(true);
-          
+          window.location.reload();
         }console.log(results)
       } else {
         throw new Error(`${response.status} ${response.statusText}`);
       }
     } catch (error) {
       console.log(`Error: ${error.message}`);
-      // Add an error message or some kind of feedback for users
     }
   }
 
@@ -40,7 +39,7 @@ function ReactToPost({ id, reactions }) {
       <button
         onClick={onSubmit}
         disabled={isReact}
-        className='react-button'
+        className={`react-button ${isReact ? 'is-reacted' : ''}`}
       >
         <HiOutlineThumbUp />
         Like
