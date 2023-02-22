@@ -41,7 +41,7 @@ function Menu() {
                                 <Nav className="justify-content-center flex-grow-1 pe-3">
                                     <Link to="/home" className="nav-link">Home</Link>
                                     <Link to="/dashboard" className="nav-link">Dashboard</Link>
-                                    <Link to="/posts" className="nav-link">Posts</Link>
+                                    <Link to="/profiles" className="nav-link">Profiles</Link>
                                     </Nav>
                                     <Nav className="d-flex">
                                     <Button variant="outline-success"
