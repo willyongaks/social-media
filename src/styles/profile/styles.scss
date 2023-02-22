@@ -28,6 +28,11 @@
     margin-bottom: 1em;
     width: 100%;
     background-color: var(--white-color);
+    transition: transform 0.3s ease-in-out;
+
+    &:hover{
+        transform: scale(1.05);
+    }
 }
 .profile-card-media img{
     width: 50px;
@@ -58,11 +63,13 @@
     background-color: var(--main-color);
     border: none;
     padding: 3px 10px;
+    color: var(--white-color);
 
 
     &:hover{
         background-color: var(--white-color);
         transition: .5s ease-in-out;
+        color: var(--black-color);
     }
 }
 
