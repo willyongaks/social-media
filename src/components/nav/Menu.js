@@ -25,7 +25,7 @@ function Menu() {
                         {['md'].map((expand) => (
                         <Navbar key={expand} bg="light" variant="light" expand={expand} className="mb-3 nav-bar">
                             <Container fluid>
-                                <Navbar.Brand to="/">Soshols</Navbar.Brand>
+                                <Navbar.Brand href="/">Soshols</Navbar.Brand>
                                 <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
                                 <Navbar.Offcanvas
                                 id={`offcanvasNavbar-expand-${expand}`}

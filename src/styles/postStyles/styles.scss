@@ -24,7 +24,6 @@
 .Post-heading {
   font-size: var(--heading-font-size);
   text-transform: uppercase;
-  padding-left: .5em;
 }
 
 .Post-container {
@@ -32,14 +31,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
 
   
 
   .card-body {
     border: none;
     border-radius: 9px;
-    width: 17.5rem;
     height: auto;
     padding: 0;
     background-color: var(--White-color);

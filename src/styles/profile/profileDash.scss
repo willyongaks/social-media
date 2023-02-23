@@ -89,16 +89,12 @@
 
 }
 
-.card-body{
-    width: 350px;
-    height: 400px;
-
-    .card-image{
-        width: 100%;
-        height: 50%;
-        object-fit: cover;
-    }
+.card-image{
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
 }
+
 
 .auth-card-button{
     display: flex;

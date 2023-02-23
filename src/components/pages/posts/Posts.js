@@ -63,8 +63,8 @@ function Posts() {
   return (
 
     <> 
-      <div className='pst-title c-white container'>
-        <h5 className='Post-heading'>Recent posts</h5>
+      <div className='pst-title c-white'>
+        <h5 className='Post-heading container'>Recent posts</h5>
       </div> 
       <div className='card-container'>
         {results.length > 0 ? (
@@ -72,7 +72,7 @@ function Posts() {
             const body = post.body.slice(0, limit);
             const isLongText = post.body.length > limit;
         return(
-          <div key={post.id} className='post-card' >
+          <div key={post.id} className='post-card col container' >
             <Card className='card-body '>
               <Card.Header className='card-header'>
                 <Card.Title className='card-title'>{post.title}</Card.Title>
