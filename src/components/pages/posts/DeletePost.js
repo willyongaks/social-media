@@ -1,11 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Base_Post_Url } from '../../../constants/url/BaseUrl';
-import AuthContext from '../../../context/AuthContext';
+
 
 function DeletePost({ postId }) {
     const [ setDeletedPost] = useState()
 
-    const auth = useContext(AuthContext)
+    const auth = localStorage.getItem('auth')
+    const token = JSON.parse(auth).accessToken;
 
     const url = `${Base_Post_Url}posts/${postId}`
 
@@ -16,7 +17,7 @@ function DeletePost({ postId }) {
                 const response = await fetch(url, {
                     method: 'DELETE',
                     headers: {
-                        'Authorization': `Bearer ${auth.accessToken}`
+                        'Authorization': `Bearer ${token}`
                     }
                 })
 
