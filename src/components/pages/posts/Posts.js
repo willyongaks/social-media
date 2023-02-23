@@ -5,6 +5,9 @@ import CommentToPost from './CommentToPost';
 import Card from 'react-bootstrap/Card';
 import '../../../styles/postStyles/styles.scss';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 
@@ -73,38 +76,42 @@ function Posts() {
             const isLongText = post.body.length > limit;
         return(
           <div key={post.id} className='post-card col container' >
-            <Card className='card-body '>
-              <Card.Header className='card-header'>
-                <Card.Title className='card-title'>{post.title}</Card.Title>
-              </Card.Header>              
-              <Card.Body>
-                <Card.Text className="card-text">{body}{isLongText &&
-                  <span>...
-                    <button 
-                      className='show-more-text'
-                      onClick={() => setLimit(post.body.length)
-                    } 
-                    >
-                    Show more</button>
-                  </span>}
-                </Card.Text>
-              </Card.Body>
-              <Link to={`/post/${post.id}`} className='link' >
-                <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
-              </Link>
-              <div className='card-count-container'>
-                  <span className='card-count-item'> 👍{post._count.reactions}</span>
-                  <span className='card-count-item'>{post._count.comments} comments</span>
+            <Container>
+              <Row >
+                <Col>
+                  <Card className='card-body '>
+                      <Card.Header className='card-header'>
+                        <Card.Title className='card-title'>{post.title}</Card.Title>
+                      </Card.Header>              
+                      <Card.Body>
+                        <Card.Text className="card-text">{body}{isLongText &&
+                          <span>...
+                            <button 
+                              className='show-more-text'
+                              onClick={() => setLimit(post.body.length)
+                            } 
+                            >
+                            Show more</button>
+                          </span>}
+                        </Card.Text>
+                      </Card.Body>
+                      <Link to={`/post/${post.id}`} className='link' >
+                        <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
+                      </Link>
+                      <div className='card-count-container'>
+                          <span className='card-count-item'> 👍{post._count.reactions}</span>
+                          <span className='card-count-item'>{post._count.comments} comments</span>
 
-                </div>
-              <div className='comment-card-button'>
-                    <ReactToPost id={post.id}  reactions={post._count.reactions} />
-                    <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/>
-                  </div>
-            </Card>
-            
-                      
-                </div>
+                        </div>
+                      <div className='comment-card-button'>
+                            <ReactToPost id={post.id}  reactions={post._count.reactions} />
+                            <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/>
+                          </div>
+                    </Card>
+                </Col>
+              </Row>
+            </Container>   
+          </div>
                  
                     
                     
