@@ -54,7 +54,7 @@ function AuthPosts() {
       {post.length > 0 ? (
         post.map((post) => (
           <div key={post.id}>
-            <Card className='card-body m-3'>
+            <Card className='card-body '>
               <Card.Header className='card-header'>
                 <Card.Title className='card-title'>{post.title}</Card.Title>
               </Card.Header>
