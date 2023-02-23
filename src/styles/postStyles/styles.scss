@@ -41,7 +41,7 @@
     height: auto;
     padding: 0;
     background-color: var(--White-color);
-    margin: 1em;
+    margin: .1em;
 
   }
 
@@ -88,6 +88,7 @@
 
   .card-container {
     display: flex;
+    gap: 1em;
 
 
     .card-image {

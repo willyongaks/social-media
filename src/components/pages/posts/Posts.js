@@ -75,7 +75,7 @@ function Posts() {
             const body = post.body.slice(0, limit);
             const isLongText = post.body.length > limit;
         return(
-          <div key={post.id} className='post-card col container' >
+          <div key={post.id} className='post-card col' >
             <Container>
               <Row >
                 <Col>
