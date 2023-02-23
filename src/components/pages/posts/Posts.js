@@ -19,7 +19,6 @@ function Posts() {
   const [results, setResults] =useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [limit, setLimit] = useState(20);
 
   const auth = localStorage.getItem('auth')
   const token = JSON.parse(auth).accessToken;
@@ -72,8 +71,6 @@ function Posts() {
       <div className='card-container'>
         {results.length > 0 ? (
           results.map((post) => {
-            const body = post.body.slice(0, limit);
-            const isLongText = post.body.length > limit;
         return(
           <div key={post.id} className='post-card col' >
             <Container>
@@ -84,15 +81,13 @@ function Posts() {
                         <Card.Title className='card-title'>{post.title}</Card.Title>
                       </Card.Header>              
                       <Card.Body>
-                        <Card.Text className="card-text">{body}{isLongText &&
+                        <Card.Text className="card-text">
                           <span>...
                             <button 
                               className='show-more-text'
-                              onClick={() => setLimit(post.body.length)
-                            } 
                             >
                             Show more</button>
-                          </span>}
+                          </span>
                         </Card.Text>
                       </Card.Body>
                       <Link to={`/post/${post.id}`} className='link' >
