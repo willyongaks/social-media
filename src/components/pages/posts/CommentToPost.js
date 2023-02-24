@@ -71,7 +71,7 @@ function CommentToPost({ id }) {
               {errors.body && (
                 <span className="error-message">{errors.body.message}</span>
               )}
-              <button type="submit" disabled={submitting}>Post</button>
+              <button type="submit" disabled={submitting} className='comment-submit-button'>Post</button>
             </div>
           </fieldset>
         </form>

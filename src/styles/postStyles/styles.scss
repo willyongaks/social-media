@@ -122,6 +122,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    position: relative;
   }
   .comment-button{
     width: 100%;
@@ -166,6 +167,33 @@
     color: #000000;
   }
 }
+
+.comment-text-area{
+ resize: none;
+ border: 1px solid rgba(128, 128, 128, 0.263);
+ display: flex;
+}
+textarea::placeholder{
+   font-size: 10px;
+ }
+
+ .error-message{
+   font-size: 12px;
+   color: red;
+ }
+
+ .comment-submit-button{
+   border: none;
+   width: 100%;
+   background-color: var(--main-color);
+   color: var(--White-color);
+   transition: 3s ease-in-out;
+
+   &:hover{
+     background-color: var(--black-a08);
+     color: var(--main-color);
+   }
+ }
 
 .react-button.is-clicked {
   transform: scale(1.2);
