@@ -61,65 +61,58 @@ function Posts() {
   }
   
 
-
   return (
-
-    <> 
+    <>
       <div className='pst-title c-white'>
         <h5 className='Post-heading container'>Recent posts</h5>
-      </div> 
+      </div>
       <div className='card-container'>
         {results.length > 0 ? (
-          results.map((post) => {
-        return(
-          <div key={post.id} className='post-card col' >
-            <Container>
-              <Row >
-                <Col>
-                  <Card className='card-body '>
-                      <Card.Header className='card-header'>
-                        <Card.Title className='card-title'>{post.title}</Card.Title>
-                      </Card.Header>              
-                      <Card.Body>
-                        <Card.Text className="card-text">
-                          <span>...
-                            <button 
-                              className='show-more-text'
-                            >
-                            Show more</button>
-                          </span>
-                        </Card.Text>
-                      </Card.Body>
-                      <Link to={`/post/${post.id}`} className='link' >
-                        <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
-                      </Link>
-                      <div className='card-count-container'>
-                          <span className='card-count-item'> 👍{post._count.reactions}</span>
-                          <span className='card-count-item'>{post._count.comments} comments</span>
-
-                        </div>
-                      <div className='comment-card-button'>
-                            <ReactToPost id={post.id}  reactions={post._count.reactions} />
-                            <CommentToPost id={post.id} comments={post._count.comments} className='comment-button'/>
-                          </div>
-                    </Card>
+          <Container>
+            <Row md={3} xs={1}>
+              {results.map((post) => (
+                <Col key={post.id} className='post-card' md={6} lg={4}>
+                  <Card className='card-body'>
+                    <Card.Header className='card-header'>
+                      <Card.Title className='card-title'>{post.title}</Card.Title>
+                    </Card.Header>
+                    <Card.Body>
+                      <Card.Text className='card-text'>
+                        <span>
+                          ...
+                          <button className='show-more-text'>Show more</button>
+                        </span>
+                      </Card.Text>
+                    </Card.Body>
+                    <Link to={`/post/${post.id}`} className='link'>
+                      <Card.Img
+                        className='card-image'
+                        variant='top'
+                        src={
+                          post.media ||
+                          'https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80'
+                        }
+                      />
+                    </Link>
+                    <div className='card-count-container'>
+                      <span className='card-count-item'> 👍{post._count.reactions}</span>
+                      <span className='card-count-item'>{post._count.comments} comments</span>
+                    </div>
+                    <div className='comment-card-button'>
+                      <ReactToPost id={post.id} reactions={post._count.reactions} />
+                      <CommentToPost id={post.id} comments={post._count.comments} className='comment-button' />
+                    </div>
+                  </Card>
                 </Col>
-              </Row>
-            </Container>   
-          </div>
-                 
-                    
-                    
-                )
-                
-                })
-            ) : (
-                <p>No posts found</p>
-            )}
-      </div> 
+              ))}
+            </Row>
+          </Container>
+        ) : (
+          <p>No posts found</p>
+        )}
+      </div>
     </>
-
-  )
+  );
 }
 
-export default Posts
+export default Posts;

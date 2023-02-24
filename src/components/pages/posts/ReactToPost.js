@@ -5,9 +5,9 @@ import { HiOutlineThumbUp } from "react-icons/hi";
 
 function ReactToPost({ id, reactions }) {
   const [isReact, setIsReact] = useState(false);
- 
+  const [isClicked, setIsClicked] = useState(false);
 
-  const auth = localStorage.getItem('auth')
+  const auth = localStorage.getItem('auth');
   const token = JSON.parse(auth).accessToken;
 
   const url = `${Base_Post_Url}posts/${id}/react/👍`;
@@ -24,8 +24,9 @@ function ReactToPost({ id, reactions }) {
         const results = await response.json();
         if (results.id) {
           setIsReact(true);
-          window.location.reload();
-        }console.log(results)
+          setIsClicked(true);
+          setTimeout(() => setIsClicked(false), 500); // reset isClicked after 500ms
+        }
       } else {
         throw new Error(`${response.status} ${response.statusText}`);
       }
@@ -34,17 +35,17 @@ function ReactToPost({ id, reactions }) {
     }
   }
 
+  const buttonClassNames = `react-button ${isReact ? 'is-reacted' : ''} ${isClicked ? 'is-clicked' : ''}`;
+
   return (
-    <>
-      <button
-        onClick={onSubmit}
-        disabled={isReact}
-        className={`react-button ${isReact ? 'is-reacted' : ''}`}
-      >
-        <HiOutlineThumbUp />
-        Like
-      </button>
-    </>
+    <button
+      onClick={onSubmit}
+      disabled={isReact}
+      className={buttonClassNames}
+    >
+      <HiOutlineThumbUp />
+      Like
+    </button>
   );
 }
 
