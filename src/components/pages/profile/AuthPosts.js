@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import DeletePost from '../posts/DeletePost';
 import UpdatePost from '../posts/UpdatePost';
 import '../../../styles/profile/profileDash.scss';
+import { Col, Row } from 'react-bootstrap';
 
 
 
@@ -47,32 +48,32 @@ function AuthPosts() {
     }
   return (
     <>
-        <div className='pst-title c-white container'>
-      <h5 className='Post-heading'>Recent posts</h5>
-    </div>
-    <div className='card-container'>
-      {post.length > 0 ? (
-        post.map((post) => (
-          <div key={post.id}>
-            <Card className='card-body '>
-              <Card.Header className='card-header'>
-                <Card.Title className='card-title'>{post.title}</Card.Title>
-              </Card.Header>
-              <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
-              <Card.Body>
-                <Card.Text className='card-text'>{post.body}</Card.Text>
-                <div className='auth-card-button'>
-                  <UpdatePost postId={post.id}/>
-                  <DeletePost postId={post.id} className='delete-button'/>
-                </div>
-              </Card.Body>
-            </Card>
-          </div>
-        ))
-      ) : (
-        <p>No posts found</p>
-      )}
-    </div>
+      <div className='pst-title c-white container'>
+        <h5 className='Post-heading'>Recent posts</h5>
+      </div>
+      <Row xs={1} md={2} lg={3} className='g-4'>
+        {post.length > 0 ? (
+          post.map((post) => (
+            <Col key={post.id}>
+              <Card className='card-body'>
+                <Card.Header className='card-header'>
+                  <Card.Title className='card-title'>{post.title}</Card.Title>
+                </Card.Header>
+                <Card.Img className='card-image' variant="top" src={post.media || "https://images.unsplash.com/photo-1675488676123-ec2e17de304d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"} />
+                <Card.Body>
+                  <Card.Text className='card-text'>{post.body}</Card.Text>
+                  <div className='auth-card-button'>
+                    <UpdatePost postId={post.id}/>
+                    <DeletePost postId={post.id} className='delete-button'/>
+                  </div>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))
+        ) : (
+          <p>No posts found</p>
+        )}
+      </Row>
     </>
   )
 }
