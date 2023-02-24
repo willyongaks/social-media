@@ -79,8 +79,8 @@ function Posts() {
                     <Card.Body>
                       <Card.Text className='card-text'>
                         <span>
-                          ...
-                          <button className='show-more-text'>Show more</button>
+                          {post.body && post.body.slice(0, 100)}{post.body && post.body.length > 100 ? "..." : ""}
+                          {post.body && <button className='show-more-text'>Show more</button>}
                         </span>
                       </Card.Text>
                     </Card.Body>

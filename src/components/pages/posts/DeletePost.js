@@ -35,7 +35,7 @@ function DeletePost({ postId }) {
 
   return (
     <>
-        <button onClick={deletePost}>
+        <button onClick={deletePost} className='delete-button'>
             Delete
         </button>
     </>

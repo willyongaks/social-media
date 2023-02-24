@@ -76,6 +76,7 @@
       font-family: var(--font-family);
       padding: 8px 16px;
       height: auto;
+      overflow: hidden;
       text-transform: capitalize;
     }
 
@@ -112,7 +113,10 @@
     align-items: center;
   }
 
- 
+  .comment-button-container {
+    height: 50px;
+    width: 100%;
+  }
 
   .comment-card-button{
     display: flex;

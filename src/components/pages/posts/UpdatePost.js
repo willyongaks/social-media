@@ -82,7 +82,7 @@ function UpdatePost({postId}) {
     <>
         
     <div className=''>
-        <Button variant="primary" onClick={handleShow}>
+        <Button onClick={handleShow} className='update-button'>
             Update
         </Button>
 

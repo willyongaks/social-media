@@ -64,7 +64,7 @@ function AuthPosts() {
                   <Card.Text className='card-text'>{post.body}</Card.Text>
                   <div className='auth-card-button'>
                     <UpdatePost postId={post.id}/>
-                    <DeletePost postId={post.id} className='delete-button'/>
+                    <DeletePost postId={post.id}/>
                   </div>
                 </Card.Body>
               </Card>
