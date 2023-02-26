@@ -9,8 +9,7 @@
   --font-family: 'Poppins', sans-serif;
 
 }
-html,
-body {
+html{
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -25,6 +24,7 @@ body {
 body{
   background-color: #F3F2EF;
   font-family: var(--font-family);
+  position: relative;
 }
 nav{
   position: -webkit-sticky;
@@ -61,8 +61,6 @@ nav{
 .right-column{
   position: sticky;
   order: 2;
-  position: -webkit-sticky;
-  position: sticky;
   top: 3rem;
   height: calc(100vh - 4rem);
   padding-top: 1.5rem;
@@ -71,8 +69,3 @@ nav{
   overflow-y: auto;
   padding: 0;
 }
- @media (max-width: 603px) {
-    .card-body {
-      width: 100%;
-    }
-  }

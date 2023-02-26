@@ -27,6 +27,7 @@ function ReactToPost({ id, reactions }) {
           setIsClicked(true);
           setTimeout(() => setIsClicked(false), 500); // reset isClicked after 500ms
         }
+        console.log(results)
       } else {
         throw new Error(`${response.status} ${response.statusText}`);
       }
@@ -44,7 +45,7 @@ function ReactToPost({ id, reactions }) {
       className={buttonClassNames}
     >
       <HiOutlineThumbUp />
-      Like
+      {isReact ? 'Liked' : 'Like'}
     </button>
   );
 }
