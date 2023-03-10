@@ -1,36 +1,39 @@
-# Your project title
+# SOCIAL MEDIA - SOSHOLS
 
-![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+![image](/src/assets/images/soshols.png)
 
-A simple overview of the use/purpose of the project.
 
 ## Description
 
-Add a more detailed description of what your project entails and set out to do.
+This project is a social media website built with React.js and Bootstrap. The website has a login authenticated page where users with Noroff emails can create an account and log in. After logging in, users can view different users and posts made by those users. The website has the following features:
 
-You can add some bullet points if you'd like to:
+- Logged-in users can create a post.
+- Logged-in users can delete their posts.
+- Logged-in users can like and comment on other people's posts.
+- Logged-in users can update their avatar and banner images.
 
-- List item 1
-- List item 2
-- List item 3
+The project aims to provide a platform for Noroff students to connect and share information with each other. The website's clean and intuitive interface makes it easy for users to navigate and use its features.
+
+Built with React.js and Bootstrap, the website provides a responsive design that adapts to different screen sizes, ensuring an optimal user experience across all devices. The project leverages React's powerful components and Bootstrap's robust styling capabilities to create a dynamic and visually appealing user interface.
+
+Overall, the project demonstrates the power and flexibility of React.js and Bootstrap in building modern web applications. It provides a solid foundation for further development and enhancement to meet the changing needs of its users.
 
 ## Built With
-
-You can list a the tech stack that you've used over here
 
 - [React.js](https://reactjs.org/)
 - [Bootstrap](https://getbootstrap.com)
 
 ## Getting Started
 
+
 ### Installing
 
-This is where you list how to get the project started. It typically just includes telling a person to clone the repo and then to install the dependencies e.g.
-
 1. Clone the repo:
+Clone the project repository from GitHub using the following command in your terminal:
 
 ```bash
-git clone git@github.com:NoroffFEU/portfolio-1-example.git
+git clone <https://github.com/willyongaks/social-media.git>
+
 ```
 
 2. Install the dependencies:
@@ -39,32 +42,21 @@ git clone git@github.com:NoroffFEU/portfolio-1-example.git
 npm install
 ```
 
+To open the project you will need a noroff email and a password.
+
 ### Running
-
-Here is where you detail how to run the app. It typically involves the commands you'd need to run to start the project e.g.
-
 To run the app, run the following commands:
 
 ```bash
 npm run start
 ```
 
-## Contributing
-
-Here you can detail any information you want to provide regarding contributing to the project. For big projects you will usually have a separate `CONTRIBUTING.md` and link to it, but for smaller projects you can simply include instructions here. These instructions can simply detail the process you want a person to take, such as to make sure to open a pull request so code can be reviewed.
 
 ## Contact
 
 This is where you can leave your social links for people to contact you, such as a LinkedIn profile or Twitter link e.g.
 
-[My Twitter page](www.twitter.com)
 
-[My LinkedIn page](www.linkedin.com)
+[My LinkedIn page](linkedin.com/in/william-okerio-ongaki-519519166)
 
-## License
 
-You can link to your license file here if you're using one, or mention what license the codebase falls under. If you're unsure then you can simply delete this section.
-
-## Acknowledgments
-
-This is where you can add any acknowledgements if you'd like, such as to people who have helped you or any code snippets you'd like to mention. You can delete this section if you don't have any acknowledgements to make.
