@@ -57,6 +57,6 @@ npm run start
 This is where you can leave your social links for people to contact you, such as a LinkedIn profile or Twitter link e.g.
 
 
-[My LinkedIn page](linkedin.com/in/william-okerio-ongaki-519519166)
+[My LinkedIn page](https://www.linkedin.com/in/william-okerio-ongaki-519519166/)
 
 
